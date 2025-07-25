@@ -1,4 +1,4 @@
-# 🍽️ FlavorFusion2 - Descubre el Mundo de las Recetas ✨
+# 🍽️ FlavorFusion - Descubre el Mundo de las Recetas ✨
 
 <div align="center">
 
@@ -17,6 +17,12 @@
 
 ## 🌟 Características Principales
 
+### 🚀 **Experiencia Visual Personalizada**
+- 💫 **Pantalla de carga** con logo personalizado
+- 🖼️ **Logo propio** en todas las pantallas principales
+- 📱 **Icono adaptativo** personalizado para el launcher
+- 🎨 **Diseño coherente** con identidad visual propia
+
 ### 🏠 **Inicio Inteligente**
 - 🎲 **Sugerencias diarias** de comidas y bebidas aleatorias
 - 🎨 **Interfaz moderna** con Material Design 3
@@ -29,7 +35,7 @@
 - 💡 **Sugerencias visuales** con chips interactivos
 - 🧹 **Limpieza automática** de resultados
 
-### ❤️ **Sistema de Favoritos Completo** ⭐ **¡IMPLEMENTADO!**
+### ❤️ **Sistema de Favoritos Completo**
 - 💾 **Almacenamiento local** con Room Database SQLite
 - 📱 **Acceso offline** a recetas guardadas sin internet
 - ♻️ **Sincronización en tiempo real** entre todas las pantallas
@@ -38,9 +44,11 @@
 - 🔄 **Alternado inteligente** - agrega/quita con un toque
 - 💡 **Estado visual claro** - corazón rojo/gris
 
-### 🌐 **Datos en Vivo**
+### 🌐 **Datos en Vivo con Traducción Automática**
 - 📡 **APIs externas** (TheMealDB + TheCocktailDB)
 - 🔄 **Contenido actualizado** constantemente
+- 🌍 **Traducción automática** del inglés al español
+- 📲 **Traducción offline** con ML Kit (tras descarga inicial)
 - 🛡️ **Manejo robusto de errores**
 - 🌍 **Interfaz 100% en español**
 
@@ -51,7 +59,7 @@
 ### Requisitos del Sistema
 - 📋 **Android 7.0** (API 24) o superior
 - 💾 **2GB RAM** recomendado
-- 💿 **150MB** espacio libre (100MB app + 50MB favoritos)
+- 💿 **150MB** espacio libre (100MB app + 50MB favoritos y modelo de traducción)
 - 🌐 **Conexión a internet** para búsquedas (favoritos funcionan offline)
 
 ### Pasos de Instalación
@@ -76,11 +84,12 @@
 ### 🚀 **Primeros Pasos**
 
 #### 1. 🏠 Pantalla de Inicio
-- Al abrir la app, verás **sugerencias del día**
+- Al abrir la app, verás la **pantalla de carga con el logo** personalizado
+- Después se cargan **sugerencias del día**
 - 🍽️ **Comida destacada** - Receta aleatoria de comida
 - 🍹 **Bebida destacada** - Cóctel o bebida especial
 - ❤️ **Botones de favorito** - Guarda directamente desde inicio
-- 📱 Usa la **navegación inferior** para cambiar de sección
+- 📱 Usa los **botones de navegación** para cambiar de sección
 
 #### 2. 🔍 Explorar Recetas
 
@@ -92,6 +101,7 @@
    • Presiona Enter ⏎
    • Toca el botón de búsqueda 🔍
 4. ❤️ Marca favoritos directamente desde resultados
+5. 🌍 Todas las recetas se muestran traducidas al español
 ```
 
 ##### 🍹 **Buscar Bebidas**
@@ -100,6 +110,7 @@
 2. Escribe: "mojito", "coffee", "beer", "tea"
 3. Encuentra cócteles y bebidas internacionales
 4. ❤️ Guarda tus bebidas favoritas instantáneamente
+5. 🌍 Todas las recetas se muestran traducidas al español
 ```
 
 #### 3. 📋 **Ver Detalles de Recetas**
@@ -108,8 +119,9 @@
 - 📝 **Información completa**: nombre, categoría, origen
 - 🥄 **Lista de ingredientes** con cantidades exactas
 - 👨‍🍳 **Instrucciones paso a paso**
+- 🌍 **Todo traducido automáticamente** al español
 
-#### 4. ❤️ **Gestionar Favoritos** ⭐ **¡NUEVA FUNCIONALIDAD!**
+#### 4. ❤️ **Gestionar Favoritos**
 
 ##### **Marcar como Favorito**
 - **Desde cualquier pantalla**: Toca el corazón ❤️ 
@@ -117,7 +129,7 @@
 - **Guardado instantáneo**: No necesitas confirmar
 
 ##### **Ver tus Favoritos**
-- **Pantalla dedicada**: Toca "Favoritos" en navegación inferior
+- **Pantalla dedicada**: Toca "Favoritos" en navegación
 - **Lista completa**: Todas tus recetas guardadas
 - **Información rica**: Imagen, nombre, categoría, tipo (comida/bebida)
 - **Acceso offline**: Funciona sin conexión a internet
@@ -162,9 +174,9 @@
 - 🔄 **Los cambios son instantáneos** en toda la app
 
 ### 🚀 **Navegación Rápida**
-- 📱 **Barra inferior**: Siempre accesible
+- 📱 **Botones principales**: Acceso directo a secciones
 - ← **Botón atrás**: Consistente en toda la app
-- 👆 **Gestos**: Deslizar para actualizar
+- ❤️ **Acceso a favoritos**: Siempre disponible
 
 ---
 
@@ -185,7 +197,15 @@
 - ✅ **Verifica el corazón**: Debe ponerse rojo al tocarlo
 - ✅ **Espacio disponible**: Verifica que tengas memoria libre
 - ✅ **Reinicia la aplicación** completamente
-- ✅ **El problema está resuelto**: Nueva implementación con Room Database
+</details>
+
+<details>
+<summary>🌍 La traducción no funciona</summary>
+
+- ✅ **Primera ejecución**: La descarga del modelo puede tardar unos minutos
+- ✅ **Verifica tu conexión** para la descarga inicial del modelo
+- ✅ **Espacio suficiente**: El modelo ocupa aproximadamente 30MB
+- ✅ **Reinicia la aplicación** si la traducción no funciona correctamente
 </details>
 
 <details>
@@ -210,16 +230,17 @@
 - 🎨 **UI**: Jetpack Compose + Material Design 3
 - 🧠 **Architecture**: MVVM + Repository Pattern
 - 💉 **DI**: Hilt
-- 💾 **Database**: Room SQLite ⭐ **Para favoritos**
+- 💾 **Database**: Room SQLite para favoritos
 - 🌐 **Network**: Retrofit + Gson
 - ⚡ **Async**: Kotlin Coroutines + Flow
 - 🧭 **Navigation**: Jetpack Navigation Compose
+- 🌍 **Translation**: ML Kit Translate
 
 ### 🌐 **APIs Utilizadas**
 - 🍽️ **[TheMealDB](https://www.themealdb.com/api.php)** - Recetas de comidas
 - 🍹 **[TheCocktailDB](https://www.thecocktaildb.com/api.php)** - Recetas de bebidas
 
-### 💾 **Persistencia de Datos** ⭐ **NUEVO**
+### 💾 **Persistencia de Datos**
 ```kotlin
 // Entidad Room para favoritos
 @Entity(tableName = "favoritos")
@@ -227,12 +248,12 @@ data class Receta(
     @PrimaryKey val id: String,
     val nombre: String,
     val imagen: String,
-    val categoria: String,
-    val area: String,
-    val instrucciones: String,
-    val ingredientes: String,
+    val categoria: String = "",
+    val area: String = "",
+    val instrucciones: String = "",
+    val ingredientes: String = "", // JSON string de los ingredientes
     val tipo: String, // "meal" o "drink"
-    val fechaAgregado: Long
+    val fechaAgregado: Long = System.currentTimeMillis()
 )
 
 // DAO con operaciones de favoritos
@@ -251,6 +272,28 @@ data class Receta(
 }
 ```
 
+### 🌍 **Servicio de Traducción**
+```kotlin
+@Singleton
+class ServicioTraduccion @Inject constructor() {
+    private val options = TranslatorOptions.Builder()
+        .setSourceLanguage(TranslateLanguage.ENGLISH)
+        .setTargetLanguage(TranslateLanguage.SPANISH)
+        .build()
+    
+    private val traductor = Translation.getClient(options)
+    
+    suspend fun traducir(texto: String): String {
+        // Traduce texto de inglés a español
+        // Funciona offline tras la descarga inicial
+    }
+    
+    suspend fun traducirNullable(texto: String?): String? {
+        // Versión segura para campos opcionales
+    }
+}
+```
+
 ---
 
 ## 📊 **Estructura del Proyecto**
@@ -258,23 +301,27 @@ data class Receta(
 ```
 📁 FlavorFusion2/
 ├── 📁 app/src/main/java/com/rodrigoangeloni/flavorfusion/
-│   ├── 💾 database/           # Room database y DAOs ⭐ NUEVO
+│   ├── 💾 database/           # Room database y DAOs
 │   │   ├── BaseDeDatos.kt     # Configuración Room
 │   │   └── RecetaDao.kt       # Operaciones favoritos
 │   ├── 💉 di/                 # Módulos de Hilt
 │   ├── 📱 model/              # Modelos de datos + DTOs
 │   ├── 🌐 network/            # Servicios API 
-│   ├── 📊 repository/         # Repository pattern ⭐ ACTUALIZADO
+│   ├── 📊 repository/         # Repository pattern
 │   ├── 🖥️ screens/            # Pantallas Compose
 │   │   ├── PantallaInicio.kt
-│   │   ├── PantallaFavoritos.kt ⭐ NUEVO
+│   │   ├── PantallaFavoritos.kt
 │   │   ├── PantallaExplorarComidas.kt
 │   │   ├── PantallaExplorarBebidas.kt
-│   │   └── PantallaDetalleReceta.kt
+│   │   ├── PantallaDetalleReceta.kt
+│   │   └── PantallaCarga.kt
 │   ├── 🎨 ui/theme/           # Tema y estilos
-│   ├── 🧠 viewmodels/         # ViewModels MVVM ⭐ ACTUALIZADO
+│   ├── 🧰 util/               # Utilidades
+│   │   ├── Navegacion.kt      # Configuración de rutas
+│   │   └── ServicioTraduccion.kt # Traducción con ML Kit
+│   ├── 🧠 viewmodels/         # ViewModels MVVM
 │   └── 🚀 MainActivity.kt     # Actividad principal
-└── 📁 doc/                   # Documentación ⭐ ACTUALIZADA
+└── 📁 doc/                   # Documentación
     ├── 📋 objetivo-y-funcionalidades.md
     ├── 🏗️ diagrama-arquitectura.md
     └── 📖 manual-de-uso.md
@@ -282,7 +329,7 @@ data class Receta(
 
 ---
 
-## 🚀 **Lo Nuevo en esta Versión** ⭐
+## 🚀 **Características Implementadas**
 
 ### ❤️ **Sistema de Favoritos Completo**
 - ✅ **Base de datos local**: Room SQLite para persistencia
@@ -291,16 +338,17 @@ data class Receta(
 - ✅ **Acceso offline**: Favoritos disponibles sin internet
 - ✅ **Botones intuitivos**: Corazón rojo/gris en toda la app
 
-### 🏗️ **Arquitectura Mejorada**
-- ✅ **Repository actualizado**: Maneja API + Database
-- ✅ **ViewModel renovado**: Estado unificado con Flow reactivo  
-- ✅ **Modelo de datos unificado**: Una entidad para comidas y bebidas
-- ✅ **Inyección de dependencias**: Configuración completa con Hilt
+### 🌍 **Traducción Automática**
+- ✅ **ML Kit de Google**: Traducciones de alta calidad
+- ✅ **Funcionamiento offline**: Tras descarga inicial del modelo
+- ✅ **Traducción completa**: Todos los textos de la API
+- ✅ **Preservación de formato**: Mantiene mayúsculas y estructura
 
-### 📖 **Documentación Completa**
-- ✅ **Manual de uso actualizado**: Instrucciones detalladas de favoritos
-- ✅ **Diagrama de arquitectura**: Refleja nueva implementación
-- ✅ **Objetivos y funcionalidades**: Lista completa de características
+### 🖼️ **Personalización Visual**
+- ✅ **Logo personalizado**: En todas las pantallas principales
+- ✅ **Pantalla de carga**: Splash screen con identidad visual
+- ✅ **Icono adaptativo**: Personalizado para el launcher
+- ✅ **Experiencia consistente**: Identidad visual unificada
 
 ---
 
@@ -332,10 +380,8 @@ Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más det
 
 <div align="center">
 
-**¡Disfruta explorando el mundo de las recetas con favoritos que nunca se pierden! 🍽️✨**
+**¡Disfruta explorando el mundo de las recetas con FlavorFusion! 🍽️✨**
 
 ⭐ **¿Te gusta el proyecto? ¡Dale una estrella!** ⭐
-
-**Nueva funcionalidad de favoritos implementada y completamente funcional** ❤️
 
 </div>

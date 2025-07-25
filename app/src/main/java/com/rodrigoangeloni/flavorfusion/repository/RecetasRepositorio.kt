@@ -77,7 +77,7 @@ class RecetasRepositorio @Inject constructor(
     // Métodos de traducción
     private suspend fun traducirRespuestaComidas(respuesta: MealResponse?): MealResponse? {
         if (respuesta?.meals == null) return respuesta
-
+        
         val comidasTraducidas = respuesta.meals.map { comida ->
             comida.copy(
                 strMeal = servicioTraduccion.traducir(comida.strMeal),
@@ -107,13 +107,13 @@ class RecetasRepositorio @Inject constructor(
                 strIngredient20 = servicioTraduccion.traducirNullable(comida.strIngredient20)
             )
         }
-
+        
         return MealResponse(comidasTraducidas)
     }
-
+    
     private suspend fun traducirRespuestaBebidas(respuesta: DrinkResponse?): DrinkResponse? {
         if (respuesta?.drinks == null) return respuesta
-
+        
         val bebidasTraducidas = respuesta.drinks.map { bebida ->
             bebida.copy(
                 strDrink = servicioTraduccion.traducir(bebida.strDrink),
@@ -138,7 +138,7 @@ class RecetasRepositorio @Inject constructor(
                 strIngredient15 = servicioTraduccion.traducirNullable(bebida.strIngredient15)
             )
         }
-
+        
         return DrinkResponse(bebidasTraducidas)
     }
 

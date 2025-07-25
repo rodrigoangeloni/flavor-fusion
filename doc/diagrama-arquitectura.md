@@ -1,4 +1,4 @@
-# FlavorFusion2 - Diagrama de Arquitectura
+# FlavorFusion - Diagrama de Arquitectura
 
 ## 🏗️ Arquitectura General de la Aplicación
 
@@ -11,10 +11,10 @@
 │  │ PantallaIni │ │PantallaExpl │ │PantallaExpl │ │ Pantalla  │  │
 │  │    cio      │ │  orComidas  │ │  orBebidas  │ │ Favoritos │  │
 │  └─────────────┘ └─────────────┘ └─────────────┘ └───────────┘  │
-│  ┌─────────────┐ ┌─────────────┐                                │
-│  │PantallaDetl │ │ Componentes │                                │
-│  │   leReceta  │ │   Comunes   │                                │
-│  └─────────────┘ └─────────────┘                                │
+│  ┌─────────────┐ ┌─────────────┐ ┌─────────────┐               │
+│  │PantallaDetl │ │ Componentes │ │ Pantalla    │               │
+│  │   leReceta  │ │   Comunes   │ │   Carga     │               │
+│  └─────────────┘ └─────────────┘ └─────────────┘               │
 └─────────────────────────────────────────────────────────────────┘
                                  ↕
 ┌─────────────────────────────────────────────────────────────────┐
@@ -26,7 +26,8 @@
 │  │  • cargarSugerenciasAleatorias()                           │ │
 │  │  • buscarComidas(consulta)                                 │ │
 │  │  • buscarBebidas(consulta)                                 │ │
-│  │  • marcarComidaComoFavorita()                              │ │
+│  │  • alternarFavorito(receta)                                │ │
+│  │  • obtenerFavoritos()                                      │ │
 │  │  • limpiarResultadosBusqueda()                             │ │
 │  └─────────────────────────────────────────────────────────────┘ │
 └─────────────────────────────────────────────────────────────────┘
@@ -41,8 +42,18 @@
 │  │  • obtenerBebidaAleatoria()                                │ │
 │  │  • buscarComidas(consulta)                                 │ │
 │  │  • buscarBebidas(consulta)                                 │ │
-│  │  • toggleComidaFavorita()                                  │ │
-│  │  • toggleBebidaFavorita()                                  │ │
+│  │  • obtenerDetalleComida(id)                                │ │
+│  │  • obtenerDetalleBebida(id)                                │ │
+│  │  • obtenerFavoritos()                                      │ │
+│  │  • alternarFavorito(receta)                                │ │
+│  │  • esFavorito(id)                                          │ │
+│  └─────────────────────────────────────────────────────────────┘ │
+│                                                                 │
+│  ┌─────────────────────────────────────────────────────────────┐ │
+│  │            ServicioTraduccion                               │ │
+│  │  • traducir(texto)                                          │ │
+│  │  • traducirNullable(texto)                                  │ │
+│  │  • traducirLista(textos)                                    │ │
 │  └─────────────────────────────────────────────────────────────┘ │
 └─────────────────────────────────────────────────────────────────┘
                                  ↕
@@ -56,20 +67,24 @@
 │  │                   │              │                         │ │
 │  │ 🌐 TheMealDB API  │              │ 💾 Room Database        │ │
 │  │ ┌───────────────┐ │              │ ┌─────────────────────┐ │ │
-│  │ │ServicioAPICom │ │              │ │   BaseDeDatos       │ │ │
-│  │ │    idas       │ │              │ │                     │ │ │
+│  │ │  ServicioAPI  │ │              │ │   BaseDeDatos       │ │ │
+│  │ │               │ │              │ │                     │ │ │
 │  │ └───────────────┘ │              │ │ ┌─────────────────┐ │ │ │
-│  │                   │              │ │ │  FavoritosDao   │ │ │ │
+│  │                   │              │ │ │   RecetaDao     │ │ │ │
 │  │ 🍹 TheCocktailDB  │              │ │ └─────────────────┘ │ │ │
 │  │ ┌───────────────┐ │              │ │                     │ │ │
-│  │ │ServicioAPIBeb │ │              │ │ ┌─────────────────┐ │ │ │
-│  │ │    idas       │ │              │ │ │ComidaFavoritaEnt│ │ │ │
+│  │ │ServicioBebidas│ │              │ │ ┌─────────────────┐ │ │ │
+│  │ │               │ │              │ │ │Receta (Entidad) │ │ │ │
 │  │ └───────────────┘ │              │ │ └─────────────────┘ │ │ │
 │  │                   │              │ │                     │ │ │
-│  │ 🔧 Retrofit       │              │ │ ┌─────────────────┐ │ │ │
-│  │    + Gson         │              │ │ │BebidaFavoritaEnt│ │ │ │
-│  └───────────────────┘              │ │ └─────────────────┘ │ │ │
-│                                     │ └─────────────────────┘ │ │
+│  │ 🔧 Retrofit       │              │ └─────────────────────┘ │ │
+│  │    + Gson         │                                         │
+│  └───────────────────┘              ┌─────────────────────────┐ │
+│                                     │  TRADUCCIÓN (ML Kit)     │ │
+│                                     │                         │ │
+│                                     │ 🌍 ML Kit Translate     │ │
+│                                     │  • Modelos offline      │ │
+│                                     │  • Inglés → Español     │ │
 │                                     └─────────────────────────┘ │
 └─────────────────────────────────────────────────────────────────┘
 ```
@@ -84,79 +99,123 @@ UI llama a ViewModel.buscarComidas()
         ↓
 ViewModel llama a Repository.buscarComidas()
         ↓
-Repository llama a ServicioAPIComidas.buscarComidas()
+Repository llama a ServicioAPI.buscarComidas()
         ↓
-API externa (TheMealDB) devuelve resultados
+API externa (TheMealDB) devuelve resultados en inglés
+        ↓
+Repository usa ServicioTraduccion para traducir al español
         ↓
 Repository procesa y mapea datos
         ↓
 ViewModel actualiza StateFlow
         ↓
-UI se recompone con nuevos resultados
+UI se recompone con nuevos resultados en español
 ```
 
 ### 2. Gestión de Favoritos
 ```
 Usuario marca receta como favorita
         ↓
-UI llama a ViewModel.marcarComidaComoFavorita()
+UI llama a ViewModel.alternarFavorito(receta)
         ↓
-ViewModel llama a Repository.toggleComidaFavorita()
+ViewModel llama a Repository.alternarFavorito(receta)
         ↓
-Repository verifica estado actual en Room DB
+Repository verifica si ya es favorito con esFavorito(id)
         ↓
-Repository inserta/elimina de base de datos local
+Si no es favorito: Repository llama a RecetaDao.insertarFavorito(receta)
+Si ya es favorito: Repository llama a RecetaDao.eliminarFavoritoPorId(id)
         ↓
-ViewModel actualiza estado en memoria
+Room Database actualiza la tabla de favoritos
         ↓
-UI refleja cambio inmediatamente
+Repository.obtenerFavoritos() emite nuevos datos a través de Flow
+        ↓
+ViewModel actualiza StateFlow con nuevos favoritos
+        ↓
+Todas las UI observando favoritos se recomponen
 ```
 
-## 🌐 APIs Externas Utilizadas
+### 3. Traducción de Contenido
+```
+Repository recibe datos de API en inglés
+        ↓
+Repository llama a ServicioTraduccion.traducir() para cada campo
+        ↓
+ServicioTraduccion verifica si el modelo está descargado
+        ↓
+Si no está descargado: ML Kit descarga modelo de traducción
+        ↓
+ML Kit traduce el texto de inglés a español
+        ↓
+Repository recibe texto traducido
+        ↓
+Repository devuelve recetas con todos los campos en español
+        ↓
+UI muestra contenido traducido al usuario
+```
 
-### TheMealDB API
-- **Base URL**: `https://www.themealdb.com/api/json/v1/1/`
-- **Endpoints**:
-  - `random.php` - Comida aleatoria
-  - `search.php?s={query}` - Búsqueda por nombre
-  - `lookup.php?i={id}` - Detalles por ID
+## 🧩 Componentes Principales
 
-### TheCocktailDB API
-- **Base URL**: `https://www.thecocktaildb.com/api/json/v1/1/`
-- **Endpoints**:
-  - `random.php` - Bebida aleatoria
-  - `search.php?s={query}` - Búsqueda por nombre
-  - `lookup.php?i={id}` - Detalles por ID
+### 📱 UI (Jetpack Compose)
+- **PantallaInicio**: Muestra recetas sugeridas y navegación principal
+- **PantallaExplorarComidas**: Búsqueda y resultados de comidas
+- **PantallaExplorarBebidas**: Búsqueda y resultados de bebidas
+- **PantallaFavoritos**: Gestión de recetas guardadas
+- **PantallaDetalleReceta**: Detalles completos de una receta
+- **PantallaCarga**: Splash screen con logo de la app
 
-## 🏛️ Patrones de Arquitectura Implementados
+### 🧠 ViewModels
+- **InicioViewModel**: Gestiona el estado general de la aplicación
+  - Manejo de búsquedas
+  - Gestión de favoritos
+  - Carga de sugerencias
+  - Manejo de errores
 
-### MVVM (Model-View-ViewModel)
-- **View**: Composables de Jetpack Compose
-- **ViewModel**: Gestión de estado y lógica de presentación
-- **Model**: Repository + Data Sources
+### 📊 Repository
+- **RecetasRepositorio**: Abstracción de las fuentes de datos
+  - Unifica API y Database
+  - Realiza traducciones automáticas
+  - Gestiona la persistencia de favoritos
 
-### Repository Pattern
-- Abstrae las fuentes de datos
-- Centraliza la lógica de acceso a datos
-- Facilita testing y mantenimiento
+### 💾 Modelo de Datos
+- **Receta**: Entidad unificada para comidas y bebidas
+  - Usada para persistencia en Room
+  - Representa cualquier tipo de receta (comida o bebida)
 
-### Dependency Injection (Hilt)
-- Gestión automática de dependencias
-- Scope management para lifecycle
-- Testing simplificado
+### 🌐 Servicio de API
+- **ServicioAPI**: Interfaz para TheMealDB
+- **ServicioBebidas**: Interfaz para TheCocktailDB
 
-### Single Source of Truth
-- StateFlow como única fuente de verdad
-- Datos centralizados en ViewModel
-- Consistencia en toda la aplicación
+### 🌍 Servicio de Traducción
+- **ServicioTraduccion**: Maneja traducciones con ML Kit
+  - Traduce de inglés a español
+  - Gestiona descarga de modelos
+  - Preserva formato (mayúsculas, etc.)
 
-## 🔧 Tecnologías y Librerías
+## 🔒 Persistencia y Acceso Offline
 
-- **UI**: Jetpack Compose + Material Design 3
-- **Architecture**: MVVM + Repository Pattern
-- **DI**: Hilt
-- **Database**: Room
-- **Network**: Retrofit + Gson
-- **Async**: Kotlin Coroutines + Flow
-- **Navigation**: Jetpack Navigation Compose
-- **Image Loading**: Coil
+### 💾 Room Database
+- **BaseDeDatos**: Configuración general de Room
+- **RecetaDao**: Operaciones CRUD para favoritos
+- **Receta**: Entidad que representa una receta guardada
+
+### 🔄 Flujos de Datos Reactivos
+- **Flow** para datos de favoritos: Actualizaciones automáticas
+- **StateFlow** en ViewModel: Estado reactivo para la UI
+- **Coroutines** para operaciones asíncronas
+
+## 🔧 Herramientas y Tecnologías Utilizadas
+
+- **Jetpack Compose**: UI declarativa
+- **Hilt**: Inyección de dependencias
+- **Kotlin Coroutines + Flow**: Programación asíncrona
+- **Room**: Persistencia local
+- **Retrofit + Gson**: Comunicación con APIs
+- **ML Kit Translate**: Traducción offline
+- **Material3**: Diseño visual
+
+## 📱 Compatibilidad
+
+- **Android 7.0+** (API 24)
+- **Soporte para temas oscuros**
+- **Diseño responsive** para diferentes tamaños de pantalla
+- **Icono adaptativo personalizado**

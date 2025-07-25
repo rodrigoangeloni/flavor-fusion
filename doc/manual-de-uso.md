@@ -1,4 +1,4 @@
-# FlavorFusion2 - Manual de Uso
+# FlavorFusion - Manual de Uso
 
 ## 📖 Guía Completa para Usuarios
 
@@ -10,24 +10,26 @@
 3. Abre la aplicación y ¡comienza a explorar!
 
 #### Primera Apertura
+- Verás una pantalla de carga con el logo de FlavorFusion
 - La aplicación cargará automáticamente sugerencias del día
 - Verás una comida y bebida destacada en la pantalla principal
-- La navegación principal está disponible en la parte inferior
 
 ---
 
 ## 🏠 Pantalla de Inicio
 
 ### ¿Qué encontrarás?
+- **🖼️ Logo de la App**: Logo personalizado en la parte superior
 - **🍽️ Comida Destacada**: Una receta de comida aleatoria del día
 - **🍹 Bebida Destacada**: Una bebida especial seleccionada
-- **📱 Navegación Rápida**: Acceso directo a todas las secciones
+- **📱 Navegación Rápida**: Botones para explorar comidas y bebidas
+- **❤️ Favoritos**: Acceso rápido a tus recetas guardadas
 
 ### Acciones Disponibles
 - **Tocar una receta**: Ver detalles completos
 - **❤️ Marcar favorito**: Toca el corazón para guardar la receta
-- **Navegar**: Usar los botones inferiores para cambiar de sección
-- **Actualizar**: Deslizar hacia abajo para nuevas sugerencias
+- **Explorar**: Usa los botones para ir a comidas o bebidas
+- **Favoritos**: Toca el icono del corazón en la barra superior
 
 ---
 
@@ -44,7 +46,6 @@
 2. **Ejecutar la búsqueda**:
    - **Opción 1**: Presiona el botón de búsqueda (🔍)
    - **Opción 2**: Presiona Enter en tu teclado
-   - **Opción 3**: La búsqueda se ejecuta automáticamente
 
 3. **Ver resultados**:
    - Los resultados aparecen como tarjetas visuales
@@ -93,187 +94,143 @@ Cuando tocas cualquier receta, verás:
 - **Pasos detallados** de preparación
 - **Texto completo** con todas las indicaciones
 - **Formato legible** para seguir mientras cocinas
+- **Traducido automáticamente** al español desde el original en inglés
 
 ---
 
-## ❤️ Sistema de Favoritos ⭐ **¡NUEVA FUNCIONALIDAD!**
+## ❤️ Sistema de Favoritos
 
 ### 🎯 ¿Qué son los Favoritos?
-Los favoritos te permiten **guardar recetas que te gustan** para acceder a ellas rápidamente, **incluso sin conexión a internet**.
+Los favoritos son recetas que guardas para acceder rápidamente más tarde. Una vez guardadas:
+- Se almacenan en tu dispositivo
+- Están disponibles sin conexión a Internet
+- Puedes acceder desde la pantalla de favoritos
+- Se sincronizan instantáneamente en toda la app
 
-### 📍 ¿Dónde Encontrar el Botón de Favorito?
-El botón ❤️ está disponible en:
-- ✅ **Pantalla de inicio** (en las recetas sugeridas)
-- ✅ **Resultados de búsqueda** (en cada tarjeta de receta)
-- ✅ **Pantalla de detalles** (en la parte superior)
-- ✅ **Pantalla de favoritos** (para eliminar)
+### 💾 Cómo Guardar Favoritos
+Hay varias formas de guardar una receta:
 
-### 🔄 Cómo Usar los Favoritos
+1. **Desde cualquier lista de recetas**:
+   - Toca el icono de corazón en la tarjeta
+   - Se vuelve rojo para indicar que se guardó correctamente
 
-#### **Agregar a Favoritos**
-1. 👀 **Encuentra una receta** que te guste
-2. 👆 **Toca el corazón ❤️** en cualquier ubicación
-3. ✨ **El corazón se pone rojo** indicando que se guardó
-4. 💾 **Se guarda automáticamente** en tu dispositivo
+2. **Desde la pantalla de detalles**:
+   - Toca el botón de corazón en la parte superior
+   - Se vuelve rojo cuando se guarda
 
-#### **Ver tus Favoritos**
-1. 📱 **Toca el ícono "Favoritos"** en la navegación inferior
-2. 📋 **Ve la lista completa** de recetas guardadas
-3. 🖼️ **Cada favorito muestra**: imagen, nombre, categoría, tipo
-4. 👆 **Toca cualquier receta** para ver detalles completos
+3. **Desde la pantalla de inicio**:
+   - Usa el botón de corazón en las recetas destacadas
 
-#### **Eliminar de Favoritos**
-**Opción 1 - Desde cualquier pantalla:**
-1. 👆 **Toca el corazón rojo ❤️** en la receta
-2. 🤍 **Se pone gris** indicando que se eliminó
+### 📋 Gestionar tus Favoritos
 
-**Opción 2 - Desde pantalla de favoritos:**
-1. 📱 **Ve a la sección Favoritos**
-2. 👆 **Toca el corazón rojo ❤️** junto a la receta
-3. ✅ **Se elimina de la lista** automáticamente
+#### Ver Tus Favoritos
+1. Toca el icono de corazón en la barra superior
+2. Accederás a la pantalla de favoritos
+3. Verás todas tus recetas guardadas ordenadas cronológicamente
 
-### 💡 Características Especiales de Favoritos
+#### Eliminar Favoritos
+Tienes dos opciones:
 
-#### 📱 **Acceso Offline**
-- ✅ **Funciona sin internet**: Ve tus favoritos en cualquier momento
-- ✅ **Datos guardados localmente**: En la memoria de tu dispositivo
-- ✅ **Imágenes disponibles**: Se guardan para uso offline
+1. **Desde la pantalla de favoritos**:
+   - Toca el corazón rojo en cualquier receta
+   - La receta se eliminará de la lista de favoritos
 
-#### 🔄 **Sincronización en Tiempo Real**
-- ✅ **Actualización instantánea**: Cambios se ven inmediatamente
-- ✅ **Estado consistente**: El corazón siempre refleja el estado real
-- ✅ **Sincronización entre pantallas**: Cambios visibles en toda la app
+2. **Desde cualquier otra pantalla**:
+   - Toca el corazón rojo de una receta ya favorita
+   - El corazón se volverá gris, indicando que ya no es favorita
 
-#### 📊 **Gestión Inteligente**
-- ✅ **Sin límite**: Guarda tantas recetas como quieras
-- ✅ **Orden cronológico**: Las más recientes aparecen primero
-- ✅ **Búsqueda rápida**: Encuentra favoritos fácilmente
-
-### 📋 Estados de la Pantalla de Favoritos
-
-#### 😊 **Con Favoritos**
-```
-┌─────────────────────────────┐
-│        Mis Favoritos        │
-├─────────────────────────────┤
-│ 🖼️ Pasta Carbonara     ❤️  │
-│    Italian • Meal           │
-├─────────────────────────────┤
-│ 🖼️ Mojito             ❤️  │
-│    Cocktail • Drink         │
-└─────────────────────────────┘
-```
-
-#### 😔 **Sin Favoritos**
-```
-┌─────────────────────────────┐
-│        Mis Favoritos        │
-├─────────────────────────────┤
-│                             │
-│         ❤️ (grande)         │
-│                             │
-│   No tienes favoritos aún   │
-│                             │
-│  Explora recetas y marca    │
-│  tus favoritas tocando      │
-│     el corazón ❤️           │
-│                             │
-└─────────────────────────────┘
-```
+#### Acceso Offline
+- Todas las recetas guardadas como favoritas están disponibles sin conexión
+- Incluyen toda la información: imagen, ingredientes e instrucciones
+- Perfecto para cocinar en lugares sin Internet
 
 ---
 
-## 🎛️ Estados de la Aplicación
+## 🌍 Traducción Automática
 
-### Indicadores Visuales
+### Funcionalidad de Traducción
+- Todas las recetas se traducen automáticamente del inglés al español
+- La traducción ocurre en tu dispositivo (sin necesidad de conexión tras la descarga inicial)
+- Incluye nombres, categorías, instrucciones e ingredientes
+- Mantiene el formato original (mayúsculas, etc.)
 
-| Estado | Símbolo | Descripción | Acción |
-|--------|---------|-------------|---------|
-| **Cargando** | 🔄 | Datos en proceso | Esperar |
-| **Favorito Activo** | ❤️ | Receta guardada | Toca para quitar |
-| **Favorito Inactivo** | 🤍 | Receta no guardada | Toca para agregar |
-| **Sin Resultados** | 🚫 | No hay coincidencias | Probar otra búsqueda |
-| **Error de Red** | ⚠️ | Problema conexión | Reintentar |
-| **Favoritos Vacíos** | 💔 | Sin favoritos guardados | Explorar recetas |
-
----
-
-## 💡 Tips y Trucos
-
-### 🔍 **Para Búsquedas Efectivas**
-- ✅ **Usa términos simples**: "chicken" mejor que "pollo con verduras"
-- ✅ **Prueba en inglés**: Las APIs funcionan mejor en inglés
-- ✅ **Sé específico**: "pasta" mejor que "comida italiana"
-- ✅ **Experimenta**: Prueba variaciones de la palabra
-
-### ❤️ **Para Gestionar Favoritos**
-- 🗂️ **Organiza mentalmente**: Agrupa por tipo de ocasión
-- 📱 **Úsalos offline**: Perfectos para cocinar sin internet
-- 🧹 **Limpia periódicamente**: Elimina recetas que ya no uses
-- 🔄 **Sincroniza**: Los cambios son instantáneos
-
-### 🚀 **Para Navegación Rápida**
-- 📱 **Barra inferior**: Siempre accesible desde cualquier pantalla
-- ← **Botón atrás**: Consistente en toda la aplicación
-- 👆 **Gestos**: Deslizar para actualizar sugerencias
+### Proceso de Traducción
+1. La primera vez que se usa, se descarga un modelo de traducción (~30MB)
+2. Una vez descargado, todas las traducciones funcionan sin conexión
+3. La traducción se realiza automáticamente al buscar o ver recetas
 
 ---
 
 ## 🔧 Solución de Problemas
 
-### 🚫 **Búsqueda no Funciona**
-**Posibles causas y soluciones:**
-- ❌ **Sin internet**: Verifica tu conexión WiFi/datos
-- ❌ **Término no existe**: Prueba palabras más comunes
-- ❌ **Error temporal**: Espera un momento y reintenta
-- ❌ **App congelada**: Cierra y reopena la aplicación
+### 🚫 La búsqueda no funciona
+- ✅ **Verifica tu conexión** a internet
+- ✅ **Revisa la ortografía** del término buscado
+- ✅ **Prueba términos en inglés**: La API funciona mejor con inglés
+- ✅ **Reinicia la aplicación**
 
-### ❤️ **Favoritos no se Guardan**
-**Pasos para solucionarlo:**
-1. ✅ **Verifica el corazón**: Debe ponerse rojo al tocarlo
-2. ✅ **Espacio disponible**: Asegúrate de tener memoria libre
-3. ✅ **Reinicia la app**: Cierra completamente y reabre
-4. ✅ **Verifica permisos**: La app debe poder escribir datos
+### ❤️ Problemas con favoritos
+- ✅ **Verifica el corazón**: Debe ponerse rojo al tocarlo
+- ✅ **Verifica el espacio disponible** en tu dispositivo
+- ✅ **Comprueba si hay actualizaciones** de la aplicación
+- ✅ **Reinicia la aplicación** completamente
 
-### 🐌 **Aplicación Lenta**
-**Optimización recomendada:**
-1. ✅ **Cierra otras apps**: Libera memoria RAM
-2. ✅ **Verifica conexión**: Internet lento afecta carga
-3. ✅ **Reinicia dispositivo**: Limpia caché del sistema
-4. ✅ **Espacio libre**: Mantén al menos 500MB disponible
+### 🌐 Problemas de traducción
+- ✅ **Primera ejecución**: La descarga del modelo puede tardar unos minutos
+- ✅ **Verifica tu conexión** para la descarga inicial del modelo
+- ✅ **Espacio suficiente**: El modelo ocupa aproximadamente 30MB
+- ✅ **Reinicia la aplicación** si la traducción no funciona correctamente
 
-### 🖼️ **Imágenes no Cargan**
-**Soluciones posibles:**
-- ✅ **Conexión lenta**: Espera más tiempo
-- ✅ **Datos móviles**: Verifica que no estés en modo ahorro
-- ✅ **Caché lleno**: Reinicia la aplicación
-- ✅ **Error temporal**: Las imágenes externas pueden fallar
+### 🐌 La aplicación está lenta
+- ✅ **Cierra otras aplicaciones**
+- ✅ **Verifica tu conexión** a internet
+- ✅ **Reinicia tu dispositivo**
 
 ---
 
-## 📞 Soporte y Ayuda
+## 💡 Tips y Trucos
 
-### 🆘 **¿Necesitas Más Ayuda?**
-Si ninguna de estas soluciones funciona:
+### 🔍 Búsquedas Efectivas
+- ✅ **Usa palabras simples**: "chicken" > "pollo con verduras"
+- ✅ **Prueba en inglés**: Las APIs funcionan mejor
+- ✅ **Sé específico**: "pasta" > "comida italiana"
+- ✅ **Experimenta**: Prueba diferentes términos
 
-1. 📧 **Contacto**: Envía un email con tu problema específico
-2. 🐛 **Reporta bugs**: Describe paso a paso lo que pasó
-3. 💡 **Sugerencias**: Comparte ideas para mejorar la app
-4. ⭐ **Valoración**: Deja tu reseña en la tienda de apps
+### ❤️ Gestión de Favoritos
+- 🗂️ **Organiza mentalmente** por tipo de comida
+- 📱 **Aprovecha el acceso offline** para cocinar sin internet
+- 🧹 **Limpia periódicamente** favoritos no usados
+- 🔄 **Los cambios son instantáneos** en toda la app
 
-### 📱 **Información del Sistema**
-Para reportar problemas, incluye:
-- Modelo de tu dispositivo
-- Versión de Android
-- Versión de la aplicación
-- Descripción detallada del problema
+### 📱 Navegación en la App
+- ← **Botón atrás**: Disponible en todas las pantallas excepto inicio
+- ❤️ **Acceso rápido**: Botón de favoritos siempre visible
+- 🔍 **Búsqueda eficiente**: Usa términos en inglés para mejores resultados
+- 🏠 **Volver al inicio**: Usa el botón atrás varias veces
 
 ---
 
-## 🎉 ¡Disfruta Cocinando!
+## 📱 Compatibilidad
 
-**FlavorFusion2** está diseñada para hacer que descubrir y guardar recetas sea **fácil, rápido y divertido**. 
+- **Sistema operativo**: Android 7.0 (API 24) o superior
+- **Memoria recomendada**: 2GB de RAM mínimo
+- **Espacio necesario**: 150MB aproximadamente
+- **Conexión**: Necesaria para búsquedas, opcional para favoritos
+- **Idiomas**: Interfaz en español, con traducción automática de contenido
 
-✨ **Con el nuevo sistema de favoritos**, nunca perderás esa receta perfecta que encontraste.
+---
 
-👨‍🍳 **¡Feliz cocina y que disfrutes explorando el mundo de los sabores!** 🍽️✨
+## 🔒 Privacidad y Permisos
+
+### Permisos Requeridos
+- **Internet**: Para buscar recetas y descargar el modelo de traducción
+- **Almacenamiento**: Para guardar favoritos y el modelo de traducción
+
+### Privacidad
+- Todas las traducciones se realizan localmente en tu dispositivo
+- Los favoritos se guardan solo en tu dispositivo
+- No se comparten datos personales con terceros
+
+---
+
+¡Disfruta explorando nuevas recetas con FlavorFusion! 🍽️✨

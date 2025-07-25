@@ -38,7 +38,15 @@ fun PantallaInicio(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Flavor Fusion") },
+                title = {
+                    // Título comentado para mostrar solo el logo
+                    /*Text(
+                        text = "Flavor Fusion",
+                        fontWeight = FontWeight.Bold,
+                        modifier = Modifier.fillMaxWidth(),
+                        textAlign = androidx.compose.ui.text.style.TextAlign.Center
+                    )*/
+                },
                 actions = {
                     IconButton(onClick = navegarAFavoritos) {
                         Icon(Icons.Default.Favorite, contentDescription = "Favoritos")
@@ -66,12 +74,12 @@ fun PantallaInicio(
             )
 
             // Título de bienvenida
-            Text(
-                text = "¡Descubre Nuevos Sabores!",
-                style = MaterialTheme.typography.headlineMedium,
-                fontWeight = FontWeight.Bold,
-                modifier = Modifier.padding(bottom = 24.dp)
-            )
+//            Text(
+//                text = "¡Descubre Nuevos Sabores!",
+//                style = MaterialTheme.typography.headlineMedium,
+//                fontWeight = FontWeight.Bold,
+//                modifier = Modifier.padding(bottom = 24.dp)
+//            )
 
             if (estadoUI.estaCargando) {
                 Box(
