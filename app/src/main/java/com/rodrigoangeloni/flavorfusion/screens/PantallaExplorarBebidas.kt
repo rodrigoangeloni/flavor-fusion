@@ -60,7 +60,7 @@ fun PantallaExplorarBebidas(
                 },
                 trailingIcon = {
                     if (searchQuery.isNotEmpty()) {
-                        IconButton(onClick = {
+                        IconButton(onClick = { 
                             searchQuery = ""
                             viewModel.limpiarResultadosBusqueda()
                         }) {
@@ -70,7 +70,7 @@ fun PantallaExplorarBebidas(
                 },
                 keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search),
                 keyboardActions = KeyboardActions(
-                    onSearch = {
+                    onSearch = { 
                         if (searchQuery.isNotBlank()) {
                             viewModel.buscarBebidas(searchQuery)
                         }
@@ -111,7 +111,7 @@ fun PantallaExplorarBebidas(
                         }
                     }
                 }
-
+                
                 uiState.resultadosBusquedaBebidas.isNotEmpty() -> {
                     LazyColumn(
                         verticalArrangement = Arrangement.spacedBy(12.dp)
@@ -126,7 +126,7 @@ fun PantallaExplorarBebidas(
                         }
                     }
                 }
-
+                
                 searchQuery.isNotBlank() && uiState.resultadosBusquedaBebidas.isEmpty() && !uiState.estaBuscando -> {
                     // Sin resultados
                     Box(
@@ -158,7 +158,7 @@ fun PantallaExplorarBebidas(
                         }
                     }
                 }
-
+                
                 else -> {
                     // Estado inicial
                     Box(
@@ -216,7 +216,7 @@ fun PantallaExplorarBebidas(
                         )
                         Spacer(modifier = Modifier.height(8.dp))
                         Button(
-                            onClick = {
+                            onClick = { 
                                 viewModel.limpiarError()
                                 if (searchQuery.isNotBlank()) {
                                     viewModel.buscarBebidas(searchQuery)
@@ -258,9 +258,9 @@ fun TarjetaRecetaBebida(
                     .size(80.dp),
                 contentScale = ContentScale.Crop
             )
-
+            
             Spacer(modifier = Modifier.width(12.dp))
-
+            
             // Información
             Column(
                 modifier = Modifier.weight(1f)
@@ -270,7 +270,7 @@ fun TarjetaRecetaBebida(
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.Bold
                 )
-
+                
                 if (receta.categoria.isNotBlank()) {
                     Text(
                         text = receta.categoria,
@@ -278,7 +278,7 @@ fun TarjetaRecetaBebida(
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                 }
-
+                
                 if (receta.area.isNotBlank()) {
                     Text(
                         text = "Tipo: ${receta.area}",
@@ -287,7 +287,7 @@ fun TarjetaRecetaBebida(
                     )
                 }
             }
-
+            
             // Botón de favorito
             IconButton(onClick = onFavoritoClick) {
                 Icon(

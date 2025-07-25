@@ -14,7 +14,7 @@ class RecetasRepositorio @Inject constructor(
     private val servicioBebidas: ServicioBebidas,
     private val recetaDao: RecetaDao
 ) {
-
+    
     // Operaciones de API para comidas
     suspend fun buscarComidas(query: String): MealResponse? {
         return try {
@@ -23,7 +23,7 @@ class RecetasRepositorio @Inject constructor(
             null
         }
     }
-
+    
     suspend fun obtenerComidaAleatoria(): MealResponse? {
         return try {
             servicioAPI.obtenerComidaAleatoria()
@@ -31,7 +31,7 @@ class RecetasRepositorio @Inject constructor(
             null
         }
     }
-
+    
     suspend fun obtenerDetalleComida(id: String): MealResponse? {
         return try {
             servicioAPI.obtenerDetalleComida(id)
@@ -39,7 +39,7 @@ class RecetasRepositorio @Inject constructor(
             null
         }
     }
-
+    
     // Operaciones de API para bebidas
     suspend fun buscarBebidas(query: String): DrinkResponse? {
         return try {
@@ -48,7 +48,7 @@ class RecetasRepositorio @Inject constructor(
             null
         }
     }
-
+    
     suspend fun obtenerBebidaAleatoria(): DrinkResponse? {
         return try {
             servicioBebidas.obtenerBebidaAleatoria()
@@ -56,7 +56,7 @@ class RecetasRepositorio @Inject constructor(
             null
         }
     }
-
+    
     suspend fun obtenerDetalleBebida(id: String): DrinkResponse? {
         return try {
             servicioBebidas.obtenerDetalleBebida(id)
@@ -64,24 +64,24 @@ class RecetasRepositorio @Inject constructor(
             null
         }
     }
-
+    
     // Operaciones de favoritos
     fun obtenerFavoritos(): Flow<List<Receta>> {
         return recetaDao.obtenerTodosFavoritos()
     }
-
+    
     suspend fun esFavorito(id: String): Boolean {
         return recetaDao.esFavorito(id)
     }
-
+    
     suspend fun agregarFavorito(receta: Receta) {
         recetaDao.insertarFavorito(receta)
     }
-
+    
     suspend fun eliminarFavorito(id: String) {
         recetaDao.eliminarFavoritoPorId(id)
     }
-
+    
     suspend fun alternarFavorito(receta: Receta) {
         if (esFavorito(receta.id)) {
             eliminarFavorito(receta.id)
