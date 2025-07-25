@@ -12,8 +12,20 @@ import com.rodrigoangeloni.flavorfusion.screens.*
 fun NavegacionApp(navController: NavHostController) {
     NavHost(
         navController = navController,
-        startDestination = "inicio"
+        startDestination = "carga"
     ) {
+        // Pantalla de carga (splash screen)
+        composable("carga") {
+            PantallaCarga(
+                onNavigateToHome = {
+                    navController.navigate("inicio") {
+                        // Eliminar la pantalla de carga del stack para que no se pueda volver
+                        popUpTo("carga") { inclusive = true }
+                    }
+                }
+            )
+        }
+
         // Pantalla de inicio
         composable("inicio") {
             PantallaInicio(
@@ -43,7 +55,8 @@ fun NavegacionApp(navController: NavHostController) {
         // Pantalla de favoritos
         composable("favoritos") {
             PantallaFavoritos(
-                onRecetaClick = { id, tipo -> navController.navigate("detalle_receta/$id/$tipo") }
+                onRecetaClick = { id, tipo -> navController.navigate("detalle_receta/$id/$tipo") },
+                onNavigateUp = { navController.navigateUp() }
             )
         }
 

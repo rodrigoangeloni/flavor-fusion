@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.RestaurantMenu
 import androidx.compose.material3.*
@@ -25,63 +26,70 @@ import com.rodrigoangeloni.flavorfusion.viewmodels.InicioViewModel
 @Composable
 fun PantallaFavoritos(
     onRecetaClick: (String, String) -> Unit,
-    viewModel: InicioViewModel = hiltViewModel()
+    viewModel: InicioViewModel = hiltViewModel(),
+    onNavigateUp: () -> Unit
 ) {
     val favoritos by viewModel.favoritos.collectAsState()
 
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp)
-    ) {
-        // Título
-        Text(
-            text = "Mis Favoritos",
-            style = MaterialTheme.typography.headlineMedium,
-            fontWeight = FontWeight.Bold,
-            modifier = Modifier.padding(bottom = 16.dp)
-        )
-
-        if (favoritos.isEmpty()) {
-            // Estado vacío
-            Column(
-                modifier = Modifier.fillMaxSize(),
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.Center
-            ) {
-                Icon(
-                    imageVector = Icons.Default.Favorite,
-                    contentDescription = null,
-                    modifier = Modifier.size(64.dp),
-                    tint = MaterialTheme.colorScheme.outline
-                )
-                Spacer(modifier = Modifier.height(16.dp))
-                Text(
-                    text = "No tienes favoritos aún",
-                    style = MaterialTheme.typography.headlineSmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    textAlign = TextAlign.Center
-                )
-                Spacer(modifier = Modifier.height(8.dp))
-                Text(
-                    text = "Explora recetas y marca tus favoritas tocando el corazón ❤️",
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    textAlign = TextAlign.Center,
-                    modifier = Modifier.padding(horizontal = 32.dp)
-                )
-            }
-        } else {
-            // Lista de favoritos
-            LazyColumn(
-                verticalArrangement = Arrangement.spacedBy(12.dp)
-            ) {
-                items(favoritos) { receta ->
-                    TarjetaFavorito(
-                        receta = receta,
-                        onClick = { onRecetaClick(receta.id, receta.tipo) },
-                        onToggleFavorito = { viewModel.alternarFavorito(receta) }
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = { Text("Mis Favoritos") },
+                navigationIcon = {
+                    IconButton(onClick = onNavigateUp) {
+                        Icon(Icons.Default.ArrowBack, contentDescription = "Regresar")
+                    }
+                }
+            )
+        }
+    ) { paddingValues ->
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(paddingValues)
+                .padding(16.dp)
+        ) {
+            if (favoritos.isEmpty()) {
+                // Estado vacío
+                Column(
+                    modifier = Modifier.fillMaxSize(),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.Center
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.Favorite,
+                        contentDescription = null,
+                        modifier = Modifier.size(64.dp),
+                        tint = MaterialTheme.colorScheme.outline
                     )
+                    Spacer(modifier = Modifier.height(16.dp))
+                    Text(
+                        text = "No tienes favoritos aún",
+                        style = MaterialTheme.typography.headlineSmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        textAlign = TextAlign.Center
+                    )
+                    Spacer(modifier = Modifier.height(8.dp))
+                    Text(
+                        text = "Explora recetas y marca tus favoritas tocando el corazón ❤️",
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        textAlign = TextAlign.Center,
+                        modifier = Modifier.padding(horizontal = 32.dp)
+                    )
+                }
+            } else {
+                // Lista de favoritos
+                LazyColumn(
+                    verticalArrangement = Arrangement.spacedBy(12.dp)
+                ) {
+                    items(favoritos) { receta ->
+                        TarjetaFavorito(
+                            receta = receta,
+                            onClick = { onRecetaClick(receta.id, receta.tipo) },
+                            onToggleFavorito = { viewModel.alternarFavorito(receta) }
+                        )
+                    }
                 }
             }
         }

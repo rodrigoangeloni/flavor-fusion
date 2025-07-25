@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="120dp"
+    android:viewportWidth="120"
+    android:viewportHeight="120">
+
+    <!-- Círculo de fondo -->
+    <path
+        android:fillColor="#FF6B35"
+        android:pathData="M60,10 A50,50 0 1,1 60,110 A50,50 0 1,1 60,10 Z" />
+
+    <!-- Copa/Vaso -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M40,35 L80,35 L75,75 Q75,80 70,80 L50,80 Q45,80 45,75 L40,35 Z" />
+
+    <!-- Detalle de bebida -->
+    <path
+        android:fillColor="#4CAF50"
+        android:pathData="M42,40 L78,40 L74,65 L46,65 L42,40 Z" />
+
+    <!-- Texto "FF" -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M25,95 L25,85 L35,85 L35,88 L28,88 L28,90 L33,90 L33,93 L28,93 L28,95 Z
+                          M38,95 L38,85 L48,85 L48,88 L41,88 L41,90 L46,90 L46,93 L41,93 L41,95 Z" />
+</vector>
+

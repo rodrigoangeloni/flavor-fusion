@@ -1,5 +1,6 @@
 package com.rodrigoangeloni.flavorfusion.screens
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -13,12 +14,14 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.AsyncImage
+import com.rodrigoangeloni.flavorfusion.R
 import com.rodrigoangeloni.flavorfusion.viewmodels.InicioViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -49,6 +52,17 @@ fun PantallaExplorarComidas(
                 .padding(paddingValues)
                 .padding(16.dp)
         ) {
+            // Logo
+            Image(
+                painter = painterResource(id = R.drawable.logocomidas),
+                contentDescription = "FlavorFusion Logo",
+                modifier = Modifier
+                    .size(100.dp)
+                    .align(Alignment.CenterHorizontally)
+                    .padding(bottom = 24.dp),
+                contentScale = ContentScale.Fit
+            )
+
             // Barra de búsqueda
             OutlinedTextField(
                 value = searchQuery,

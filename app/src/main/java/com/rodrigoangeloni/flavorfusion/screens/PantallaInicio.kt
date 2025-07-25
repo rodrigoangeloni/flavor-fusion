@@ -15,11 +15,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.AsyncImage
+import com.rodrigoangeloni.flavorfusion.R
 import com.rodrigoangeloni.flavorfusion.viewmodels.InicioViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -52,6 +54,17 @@ fun PantallaInicio(
                 .verticalScroll(rememberScrollState())
                 .padding(16.dp)
         ) {
+            // Logo personalizado
+            Image(
+                painter = painterResource(id = R.drawable.fusiondesabores), // Cambia "logo_personalizado" por el nombre de tu archivo PNG
+                contentDescription = "FlavorFusion Logo",
+                modifier = Modifier
+                    .size(120.dp)
+                    .align(Alignment.CenterHorizontally)
+                    .padding(bottom = 16.dp),
+                contentScale = ContentScale.Fit
+            )
+
             // Título de bienvenida
             Text(
                 text = "¡Descubre Nuevos Sabores!",
