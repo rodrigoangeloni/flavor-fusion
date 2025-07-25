@@ -10,14 +10,14 @@
 **Una aplicación móvil moderna para explorar y gestionar recetas de comidas y bebidas** 🚀
 
 <p align="center">
-  <img src="doc/screenshots/screenshot_1.png" width="250" alt="Pantalla de Carga e Inicio">
-  <img src="doc/screenshots/screenshot_2.png" width="250" alt="Explorar Comidas y Bebidas">
-  <img src="doc/screenshots/screenshot_3.png" width="250" alt="Detalle de Receta">
+  <img src="https://raw.githubusercontent.com/rodrigoangeloni/FlavorFusion2/main/doc/screenshots/screenshot_1.png" width="250" alt="Pantalla de Carga e Inicio">
+  <img src="https://raw.githubusercontent.com/rodrigoangeloni/FlavorFusion2/main/doc/screenshots/screenshot_2.png" width="250" alt="Explorar Comidas y Bebidas">
+  <img src="https://raw.githubusercontent.com/rodrigoangeloni/FlavorFusion2/main/doc/screenshots/screenshot_3.png" width="250" alt="Detalle de Receta">
 </p>
 <p align="center">
-  <img src="doc/screenshots/screenshot_4.png" width="250" alt="Favoritos y Sincronización">
-  <img src="doc/screenshots/screenshot_5.png" width="250" alt="Manejo de Errores">
-  <img src="doc/screenshots/screenshot_6.png" width="250" alt="Búsqueda y Sugerencias">
+  <img src="https://raw.githubusercontent.com/rodrigoangeloni/FlavorFusion2/main/doc/screenshots/screenshot_4.png" width="250" alt="Favoritos y Sincronización">
+  <img src="https://raw.githubusercontent.com/rodrigoangeloni/FlavorFusion2/main/doc/screenshots/screenshot_5.png" width="250" alt="Manejo de Errores">
+  <img src="https://raw.githubusercontent.com/rodrigoangeloni/FlavorFusion2/main/doc/screenshots/screenshot_6.png" width="250" alt="Búsqueda y Sugerencias">
 </p>
 
 [📱 Instalación](#-instalación) • [🔍 Características](#-características) • [📖 Manual de Uso](#-manual-de-uso) • [🏗️ Arquitectura](#️-arquitectura)
@@ -76,7 +76,7 @@
 ### Pasos de Instalación
 1. **Clona el repositorio**
    ```bash
-   git clone https://github.com/tu-usuario/FlavorFusion2.git
+   git clone https://github.com/rodrigoangeloni/FlavorFusion2.git
    ```
 
 2. **Abre en Android Studio**
@@ -333,6 +333,7 @@ class ServicioTraduccion @Inject constructor() {
 │   ├── 🧠 viewmodels/         # ViewModels MVVM
 │   └── 🚀 MainActivity.kt     # Actividad principal
 └── 📁 doc/                   # Documentación
+    ├── 🖼️ screenshots/        # Capturas de pantalla
     ├── 📋 objetivo-y-funcionalidades.md
     ├── 🏗️ diagrama-arquitectura.md
     └── 📖 manual-de-uso.md
@@ -378,7 +379,7 @@ Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más det
 ## 👨‍💻 Autor
 
 **Rodrigo Angeloni**
-- 📧 Email: [roandev87@gmail.com]
+- 📧 Email: roandev87@gmail.com
 - 🐙 GitHub: [@rodrigoangeloni](https://github.com/rodrigoangeloni)
 
 ---
