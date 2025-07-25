@@ -9,6 +9,17 @@
 
 **Una aplicación móvil moderna para explorar y gestionar recetas de comidas y bebidas** 🚀
 
+<p align="center">
+  <img src="https://github.com/rodrigoangeloni/flavor-fusion/blob/main/capturas%20de%20pantalla/1%20Inicio.png" width="250" alt="Pantalla de Carga e Inicio">
+  <img src="https://github.com/rodrigoangeloni/flavor-fusion/blob/main/capturas%20de%20pantalla/2%20Menu%20Principal.png" width="250" alt="Menú Principal">
+  <img src="https://github.com/rodrigoangeloni/flavor-fusion/blob/main/capturas%20de%20pantalla/3%20Mis%20Favoritos.png" width="250" alt="Mis Favoritos">
+</p>
+<p align="center">
+  <img src="https://github.com/rodrigoangeloni/flavor-fusion/blob/main/capturas%20de%20pantalla/4%20Explorar%20Comida.png" width="250" alt="Explorar Comidas">
+  <img src="https://github.com/rodrigoangeloni/flavor-fusion/blob/main/capturas%20de%20pantalla/5%20Explorar%20Bebida.png" width="250" alt="Explorar Bebidas">
+  <img src="https://github.com/rodrigoangeloni/flavor-fusion/blob/main/capturas%20de%20pantalla/6%20Detalle%20Receta.png" width="250" alt="Detalle de Receta">
+</p>
+
 [📱 Instalación](#-instalación) • [🔍 Características](#-características) • [📖 Manual de Uso](#-manual-de-uso) • [🏗️ Arquitectura](#️-arquitectura)
 
 </div>
@@ -65,7 +76,7 @@
 ### Pasos de Instalación
 1. **Clona el repositorio**
    ```bash
-   git clone https://github.com/tu-usuario/FlavorFusion2.git
+   git clone https://github.com/rodrigoangeloni/FlavorFusion2.git
    ```
 
 2. **Abre en Android Studio**
@@ -299,7 +310,7 @@ class ServicioTraduccion @Inject constructor() {
 ## 📊 **Estructura del Proyecto**
 
 ```
-📁 FlavorFusion2/
+📁 FlavorFusion/
 ├── 📁 app/src/main/java/com/rodrigoangeloni/flavorfusion/
 │   ├── 💾 database/           # Room database y DAOs
 │   │   ├── BaseDeDatos.kt     # Configuración Room
@@ -322,6 +333,7 @@ class ServicioTraduccion @Inject constructor() {
 │   ├── 🧠 viewmodels/         # ViewModels MVVM
 │   └── 🚀 MainActivity.kt     # Actividad principal
 └── 📁 doc/                   # Documentación
+    ├── 🖼️ screenshots/        # Capturas de pantalla
     ├── 📋 objetivo-y-funcionalidades.md
     ├── 🏗️ diagrama-arquitectura.md
     └── 📖 manual-de-uso.md
@@ -343,12 +355,6 @@ class ServicioTraduccion @Inject constructor() {
 - ✅ **Funcionamiento offline**: Tras descarga inicial del modelo
 - ✅ **Traducción completa**: Todos los textos de la API
 - ✅ **Preservación de formato**: Mantiene mayúsculas y estructura
-
-### 🖼️ **Personalización Visual**
-- ✅ **Logo personalizado**: En todas las pantallas principales
-- ✅ **Pantalla de carga**: Splash screen con identidad visual
-- ✅ **Icono adaptativo**: Personalizado para el launcher
-- ✅ **Experiencia consistente**: Identidad visual unificada
 
 ---
 
@@ -373,7 +379,7 @@ Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más det
 ## 👨‍💻 Autor
 
 **Rodrigo Angeloni**
-- 📧 Email: [roandev87@gmail.com]
+- 📧 Email: roandev87@gmail.com
 - 🐙 GitHub: [@rodrigoangeloni](https://github.com/rodrigoangeloni)
 
 ---

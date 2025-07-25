@@ -39,8 +39,9 @@ fun PantallaInicio(
         topBar = {
             TopAppBar(
                 title = {
+                    // Título comentado para mostrar solo el logo
                     Text(
-                        text = "¡Menú Principal!",
+                        text = "Menú Principal",
                         fontWeight = FontWeight.Bold,
                         modifier = Modifier.fillMaxWidth(),
                         textAlign = androidx.compose.ui.text.style.TextAlign.Center
@@ -61,7 +62,7 @@ fun PantallaInicio(
                 .verticalScroll(rememberScrollState())
                 .padding(16.dp)
         ) {
-            // Logo personalizado a futuro
+            // Logo personalizado
 //            Image(
 //                painter = painterResource(id = R.drawable.fusiondesabores), // Cambia "logo_personalizado" por el nombre de tu archivo PNG
 //                contentDescription = "FlavorFusion Logo",
@@ -70,6 +71,14 @@ fun PantallaInicio(
 //                    .align(Alignment.CenterHorizontally)
 //                    .padding(bottom = 16.dp),
 //                contentScale = ContentScale.Fit
+//            )
+
+            // Título de bienvenida
+//            Text(
+//                text = "¡Descubre Nuevos Sabores!",
+//                style = MaterialTheme.typography.headlineMedium,
+//                fontWeight = FontWeight.Bold,
+//                modifier = Modifier.padding(bottom = 24.dp)
 //            )
 
 
