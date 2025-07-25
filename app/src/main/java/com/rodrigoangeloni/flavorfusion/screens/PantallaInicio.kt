@@ -40,12 +40,12 @@ fun PantallaInicio(
             TopAppBar(
                 title = {
                     // Título comentado para mostrar solo el logo
-                    /*Text(
-                        text = "Flavor Fusion",
+                    Text(
+                        text = "Menú Principal",
                         fontWeight = FontWeight.Bold,
                         modifier = Modifier.fillMaxWidth(),
                         textAlign = androidx.compose.ui.text.style.TextAlign.Center
-                    )*/
+                    )
                 },
                 actions = {
                     IconButton(onClick = navegarAFavoritos) {
@@ -63,15 +63,15 @@ fun PantallaInicio(
                 .padding(16.dp)
         ) {
             // Logo personalizado
-            Image(
-                painter = painterResource(id = R.drawable.fusiondesabores), // Cambia "logo_personalizado" por el nombre de tu archivo PNG
-                contentDescription = "FlavorFusion Logo",
-                modifier = Modifier
-                    .size(120.dp)
-                    .align(Alignment.CenterHorizontally)
-                    .padding(bottom = 16.dp),
-                contentScale = ContentScale.Fit
-            )
+//            Image(
+//                painter = painterResource(id = R.drawable.fusiondesabores), // Cambia "logo_personalizado" por el nombre de tu archivo PNG
+//                contentDescription = "FlavorFusion Logo",
+//                modifier = Modifier
+//                    .size(120.dp)
+//                    .align(Alignment.CenterHorizontally)
+//                    .padding(bottom = 16.dp),
+//                contentScale = ContentScale.Fit
+//            )
 
             // Título de bienvenida
 //            Text(

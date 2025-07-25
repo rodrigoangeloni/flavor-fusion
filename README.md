@@ -9,6 +9,17 @@
 
 **Una aplicación móvil moderna para explorar y gestionar recetas de comidas y bebidas** 🚀
 
+<p align="center">
+  <img src="doc/screenshots/screenshot_1.png" width="250" alt="Pantalla de Carga e Inicio">
+  <img src="doc/screenshots/screenshot_2.png" width="250" alt="Explorar Comidas y Bebidas">
+  <img src="doc/screenshots/screenshot_3.png" width="250" alt="Detalle de Receta">
+</p>
+<p align="center">
+  <img src="doc/screenshots/screenshot_4.png" width="250" alt="Favoritos y Sincronización">
+  <img src="doc/screenshots/screenshot_5.png" width="250" alt="Manejo de Errores">
+  <img src="doc/screenshots/screenshot_6.png" width="250" alt="Búsqueda y Sugerencias">
+</p>
+
 [📱 Instalación](#-instalación) • [🔍 Características](#-características) • [📖 Manual de Uso](#-manual-de-uso) • [🏗️ Arquitectura](#️-arquitectura)
 
 </div>
@@ -299,7 +310,7 @@ class ServicioTraduccion @Inject constructor() {
 ## 📊 **Estructura del Proyecto**
 
 ```
-📁 FlavorFusion2/
+📁 FlavorFusion/
 ├── 📁 app/src/main/java/com/rodrigoangeloni/flavorfusion/
 │   ├── 💾 database/           # Room database y DAOs
 │   │   ├── BaseDeDatos.kt     # Configuración Room
@@ -343,12 +354,6 @@ class ServicioTraduccion @Inject constructor() {
 - ✅ **Funcionamiento offline**: Tras descarga inicial del modelo
 - ✅ **Traducción completa**: Todos los textos de la API
 - ✅ **Preservación de formato**: Mantiene mayúsculas y estructura
-
-### 🖼️ **Personalización Visual**
-- ✅ **Logo personalizado**: En todas las pantallas principales
-- ✅ **Pantalla de carga**: Splash screen con identidad visual
-- ✅ **Icono adaptativo**: Personalizado para el launcher
-- ✅ **Experiencia consistente**: Identidad visual unificada
 
 ---
 
