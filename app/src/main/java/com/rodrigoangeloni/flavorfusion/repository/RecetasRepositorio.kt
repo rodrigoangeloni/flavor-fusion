@@ -4,7 +4,9 @@ import com.rodrigoangeloni.flavorfusion.database.RecetaDao
 import com.rodrigoangeloni.flavorfusion.model.*
 import com.rodrigoangeloni.flavorfusion.network.ServicioAPI
 import com.rodrigoangeloni.flavorfusion.network.ServicioBebidas
+import com.rodrigoangeloni.flavorfusion.util.ServicioTraduccion
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -12,13 +14,15 @@ import javax.inject.Singleton
 class RecetasRepositorio @Inject constructor(
     private val servicioAPI: ServicioAPI,
     private val servicioBebidas: ServicioBebidas,
-    private val recetaDao: RecetaDao
+    private val recetaDao: RecetaDao,
+    private val servicioTraduccion: ServicioTraduccion
 ) {
     
-    // Operaciones de API para comidas
+    // Operaciones de API para comidas con traducción
     suspend fun buscarComidas(query: String): MealResponse? {
         return try {
-            servicioAPI.buscarComidas(query)
+            val respuesta = servicioAPI.buscarComidas(query)
+            traducirRespuestaComidas(respuesta)
         } catch (e: Exception) {
             null
         }
@@ -26,7 +30,8 @@ class RecetasRepositorio @Inject constructor(
     
     suspend fun obtenerComidaAleatoria(): MealResponse? {
         return try {
-            servicioAPI.obtenerComidaAleatoria()
+            val respuesta = servicioAPI.obtenerComidaAleatoria()
+            traducirRespuestaComidas(respuesta)
         } catch (e: Exception) {
             null
         }
@@ -34,16 +39,18 @@ class RecetasRepositorio @Inject constructor(
     
     suspend fun obtenerDetalleComida(id: String): MealResponse? {
         return try {
-            servicioAPI.obtenerDetalleComida(id)
+            val respuesta = servicioAPI.obtenerDetalleComida(id)
+            traducirRespuestaComidas(respuesta)
         } catch (e: Exception) {
             null
         }
     }
     
-    // Operaciones de API para bebidas
+    // Operaciones de API para bebidas con traducción
     suspend fun buscarBebidas(query: String): DrinkResponse? {
         return try {
-            servicioBebidas.buscarBebidas(query)
+            val respuesta = servicioBebidas.buscarBebidas(query)
+            traducirRespuestaBebidas(respuesta)
         } catch (e: Exception) {
             null
         }
@@ -51,7 +58,8 @@ class RecetasRepositorio @Inject constructor(
     
     suspend fun obtenerBebidaAleatoria(): DrinkResponse? {
         return try {
-            servicioBebidas.obtenerBebidaAleatoria()
+            val respuesta = servicioBebidas.obtenerBebidaAleatoria()
+            traducirRespuestaBebidas(respuesta)
         } catch (e: Exception) {
             null
         }
@@ -59,12 +67,81 @@ class RecetasRepositorio @Inject constructor(
     
     suspend fun obtenerDetalleBebida(id: String): DrinkResponse? {
         return try {
-            servicioBebidas.obtenerDetalleBebida(id)
+            val respuesta = servicioBebidas.obtenerDetalleBebida(id)
+            traducirRespuestaBebidas(respuesta)
         } catch (e: Exception) {
             null
         }
     }
     
+    // Métodos de traducción
+    private suspend fun traducirRespuestaComidas(respuesta: MealResponse?): MealResponse? {
+        if (respuesta?.meals == null) return respuesta
+
+        val comidasTraducidas = respuesta.meals.map { comida ->
+            comida.copy(
+                strMeal = servicioTraduccion.traducir(comida.strMeal),
+                strCategory = servicioTraduccion.traducirNullable(comida.strCategory),
+                strArea = servicioTraduccion.traducirNullable(comida.strArea),
+                strInstructions = servicioTraduccion.traducirNullable(comida.strInstructions),
+                // Traducir ingredientes
+                strIngredient1 = servicioTraduccion.traducirNullable(comida.strIngredient1),
+                strIngredient2 = servicioTraduccion.traducirNullable(comida.strIngredient2),
+                strIngredient3 = servicioTraduccion.traducirNullable(comida.strIngredient3),
+                strIngredient4 = servicioTraduccion.traducirNullable(comida.strIngredient4),
+                strIngredient5 = servicioTraduccion.traducirNullable(comida.strIngredient5),
+                strIngredient6 = servicioTraduccion.traducirNullable(comida.strIngredient6),
+                strIngredient7 = servicioTraduccion.traducirNullable(comida.strIngredient7),
+                strIngredient8 = servicioTraduccion.traducirNullable(comida.strIngredient8),
+                strIngredient9 = servicioTraduccion.traducirNullable(comida.strIngredient9),
+                strIngredient10 = servicioTraduccion.traducirNullable(comida.strIngredient10),
+                strIngredient11 = servicioTraduccion.traducirNullable(comida.strIngredient11),
+                strIngredient12 = servicioTraduccion.traducirNullable(comida.strIngredient12),
+                strIngredient13 = servicioTraduccion.traducirNullable(comida.strIngredient13),
+                strIngredient14 = servicioTraduccion.traducirNullable(comida.strIngredient14),
+                strIngredient15 = servicioTraduccion.traducirNullable(comida.strIngredient15),
+                strIngredient16 = servicioTraduccion.traducirNullable(comida.strIngredient16),
+                strIngredient17 = servicioTraduccion.traducirNullable(comida.strIngredient17),
+                strIngredient18 = servicioTraduccion.traducirNullable(comida.strIngredient18),
+                strIngredient19 = servicioTraduccion.traducirNullable(comida.strIngredient19),
+                strIngredient20 = servicioTraduccion.traducirNullable(comida.strIngredient20)
+            )
+        }
+
+        return MealResponse(comidasTraducidas)
+    }
+
+    private suspend fun traducirRespuestaBebidas(respuesta: DrinkResponse?): DrinkResponse? {
+        if (respuesta?.drinks == null) return respuesta
+
+        val bebidasTraducidas = respuesta.drinks.map { bebida ->
+            bebida.copy(
+                strDrink = servicioTraduccion.traducir(bebida.strDrink),
+                strCategory = servicioTraduccion.traducirNullable(bebida.strCategory),
+                strGlass = servicioTraduccion.traducirNullable(bebida.strGlass),
+                strInstructions = servicioTraduccion.traducirNullable(bebida.strInstructions),
+                // Traducir ingredientes
+                strIngredient1 = servicioTraduccion.traducirNullable(bebida.strIngredient1),
+                strIngredient2 = servicioTraduccion.traducirNullable(bebida.strIngredient2),
+                strIngredient3 = servicioTraduccion.traducirNullable(bebida.strIngredient3),
+                strIngredient4 = servicioTraduccion.traducirNullable(bebida.strIngredient4),
+                strIngredient5 = servicioTraduccion.traducirNullable(bebida.strIngredient5),
+                strIngredient6 = servicioTraduccion.traducirNullable(bebida.strIngredient6),
+                strIngredient7 = servicioTraduccion.traducirNullable(bebida.strIngredient7),
+                strIngredient8 = servicioTraduccion.traducirNullable(bebida.strIngredient8),
+                strIngredient9 = servicioTraduccion.traducirNullable(bebida.strIngredient9),
+                strIngredient10 = servicioTraduccion.traducirNullable(bebida.strIngredient10),
+                strIngredient11 = servicioTraduccion.traducirNullable(bebida.strIngredient11),
+                strIngredient12 = servicioTraduccion.traducirNullable(bebida.strIngredient12),
+                strIngredient13 = servicioTraduccion.traducirNullable(bebida.strIngredient13),
+                strIngredient14 = servicioTraduccion.traducirNullable(bebida.strIngredient14),
+                strIngredient15 = servicioTraduccion.traducirNullable(bebida.strIngredient15)
+            )
+        }
+
+        return DrinkResponse(bebidasTraducidas)
+    }
+
     // Operaciones de favoritos
     fun obtenerFavoritos(): Flow<List<Receta>> {
         return recetaDao.obtenerTodosFavoritos()

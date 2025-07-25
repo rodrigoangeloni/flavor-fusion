@@ -98,6 +98,12 @@ dependencies {
 
     // Material Icons Extended - Más iconos
     implementation("androidx.compose.material:material-icons-extended:1.5.4")
+
+    // ML Kit para traducción
+    implementation("com.google.mlkit:translate:17.0.2")
+
+    // Google Play Services Tasks para soporte de await()
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.7.1")
 }
 
 kapt {

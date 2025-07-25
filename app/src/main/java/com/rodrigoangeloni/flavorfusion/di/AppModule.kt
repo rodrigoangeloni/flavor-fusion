@@ -76,4 +76,11 @@ object AppModule {
     fun provideRecetaDao(baseDeDatos: BaseDeDatos): RecetaDao {
         return baseDeDatos.recetaDao()
     }
+
+    // Proveer servicio de traducción
+    @Provides
+    @Singleton
+    fun provideServicioTraduccion(): com.rodrigoangeloni.flavorfusion.util.ServicioTraduccion {
+        return com.rodrigoangeloni.flavorfusion.util.ServicioTraduccion()
+    }
 }
