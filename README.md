@@ -10,14 +10,14 @@
 **Una aplicación móvil moderna para explorar y gestionar recetas de comidas y bebidas** 🚀
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/rodrigoangeloni/FlavorFusion2/main/doc/screenshots/screenshot_1.png" width="250" alt="Pantalla de Carga e Inicio">
-  <img src="https://raw.githubusercontent.com/rodrigoangeloni/FlavorFusion2/main/doc/screenshots/screenshot_2.png" width="250" alt="Explorar Comidas y Bebidas">
-  <img src="https://raw.githubusercontent.com/rodrigoangeloni/FlavorFusion2/main/doc/screenshots/screenshot_3.png" width="250" alt="Detalle de Receta">
+  <img src="https://github.com/rodrigoangeloni/flavor-fusion/blob/main/capturas%20de%20pantalla/1%20Inicio.png" width="250" alt="Pantalla de Carga e Inicio">
+  <img src="https://github.com/rodrigoangeloni/flavor-fusion/blob/main/capturas%20de%20pantalla/2%20Menu%20Principal.png" width="250" alt="Menú Principal">
+  <img src="https://github.com/rodrigoangeloni/flavor-fusion/blob/main/capturas%20de%20pantalla/3%20Mis%20Favoritos.png" width="250" alt="Mis Favoritos">
 </p>
 <p align="center">
-  <img src="https://raw.githubusercontent.com/rodrigoangeloni/FlavorFusion2/main/doc/screenshots/screenshot_4.png" width="250" alt="Favoritos y Sincronización">
-  <img src="https://raw.githubusercontent.com/rodrigoangeloni/FlavorFusion2/main/doc/screenshots/screenshot_5.png" width="250" alt="Manejo de Errores">
-  <img src="https://raw.githubusercontent.com/rodrigoangeloni/FlavorFusion2/main/doc/screenshots/screenshot_6.png" width="250" alt="Búsqueda y Sugerencias">
+  <img src="https://github.com/rodrigoangeloni/flavor-fusion/blob/main/capturas%20de%20pantalla/4%20Explorar%20Comida.png" width="250" alt="Explorar Comidas">
+  <img src="https://github.com/rodrigoangeloni/flavor-fusion/blob/main/capturas%20de%20pantalla/5%20Explorar%20Bebida.png" width="250" alt="Explorar Bebidas">
+  <img src="https://github.com/rodrigoangeloni/flavor-fusion/blob/main/capturas%20de%20pantalla/6%20Detalle%20Receta.png" width="250" alt="Detalle de Receta">
 </p>
 
 [📱 Instalación](#-instalación) • [🔍 Características](#-características) • [📖 Manual de Uso](#-manual-de-uso) • [🏗️ Arquitectura](#️-arquitectura)
