@@ -22,19 +22,21 @@
 - 🎨 **Interfaz moderna** con Material Design 3
 - ⚡ **Navegación fluida** entre secciones
 
-### 🔍 **Búsqueda Inteligente en Español** ⭐ **¡NOVEDAD!**
-- 🇪🇸 **Búsquedas en español** con traducción automática
-- 🍽️ **Explorar comidas** escribiendo "pollo", "pasta", "tacos"
-- 🍹 **Descubrir bebidas** con "mojito", "café", "cerveza"
+### 🔍 **Búsqueda Inteligente** 
+- 🍽️ **Explorar comidas** escribiendo "chicken", "pasta", "tacos"
+- 🍹 **Descubrir bebidas** con "mojito", "coffee", "beer"
 - ⌨️ **Búsqueda con Enter** o botón dedicado
 - 💡 **Sugerencias visuales** con chips interactivos
-- 🔄 **Traducción transparente** que muestra el proceso
 - 🧹 **Limpieza automática** de resultados
 
-### ❤️ **Sistema de Favoritos**
-- 💾 **Almacenamiento local** con Room Database
-- 📱 **Acceso offline** a recetas guardadas
-- ♻️ **Sincronización en tiempo real**
+### ❤️ **Sistema de Favoritos Completo** ⭐ **¡IMPLEMENTADO!**
+- 💾 **Almacenamiento local** con Room Database SQLite
+- 📱 **Acceso offline** a recetas guardadas sin internet
+- ♻️ **Sincronización en tiempo real** entre todas las pantallas
+- 🎯 **Botón de favorito** disponible en toda la aplicación
+- 📋 **Pantalla dedicada** para gestionar favoritos
+- 🔄 **Alternado inteligente** - agrega/quita con un toque
+- 💡 **Estado visual claro** - corazón rojo/gris
 
 ### 🌐 **Datos en Vivo**
 - 📡 **APIs externas** (TheMealDB + TheCocktailDB)
@@ -49,8 +51,8 @@
 ### Requisitos del Sistema
 - 📋 **Android 7.0** (API 24) o superior
 - 💾 **2GB RAM** recomendado
-- 💿 **100MB** espacio libre
-- 🌐 **Conexión a internet** para búsquedas
+- 💿 **150MB** espacio libre (100MB app + 50MB favoritos)
+- 🌐 **Conexión a internet** para búsquedas (favoritos funcionan offline)
 
 ### Pasos de Instalación
 1. **Clona el repositorio**
@@ -77,56 +79,58 @@
 - Al abrir la app, verás **sugerencias del día**
 - 🍽️ **Comida destacada** - Receta aleatoria de comida
 - 🍹 **Bebida destacada** - Cóctel o bebida especial
+- ❤️ **Botones de favorito** - Guarda directamente desde inicio
 - 📱 Usa la **navegación inferior** para cambiar de sección
 
 #### 2. 🔍 Explorar Recetas
 
-##### 🍽️ **Buscar Comidas en Español** ⭐ **¡NUEVA FUNCIONALIDAD!**
+##### 🍽️ **Buscar Comidas**
 ```
 1. Toca la sección "Explorar Comidas"
-2. Escribe en ESPAÑOL: "pollo", "pasta", "tacos", "hamburguesa"
-3. Ve las sugerencias automáticas en chips
-4. Ejecuta la búsqueda:
+2. Escribe: "chicken", "pasta", "beef", "pizza"
+3. Ejecuta la búsqueda:
    • Presiona Enter ⏎
    • Toca el botón de búsqueda 🔍
-5. ¡La app traduce automáticamente y muestra resultados!
+4. ❤️ Marca favoritos directamente desde resultados
 ```
 
-**Ejemplos que funcionan perfectamente:**
-- "pollo" → encuentra recetas de chicken
-- "pasta" → encuentra recetas de pasta  
-- "carne" → encuentra recetas de beef
-- "pescado" → encuentra recetas de fish
-- "pizza" → encuentra recetas de pizza
-
-##### 🍹 **Buscar Bebidas en Español** ⭐ **¡NUEVA FUNCIONALIDAD!**
+##### 🍹 **Buscar Bebidas**
 ```
 1. Ve a "Explorar Bebidas"
-2. Escribe en ESPAÑOL: "mojito", "café", "cerveza", "té"
-3. Ve sugerencias específicas para bebidas
-4. La traducción es automática y transparente
-5. Descubre cócteles y bebidas internacionales
+2. Escribe: "mojito", "coffee", "beer", "tea"
+3. Encuentra cócteles y bebidas internacionales
+4. ❤️ Guarda tus bebidas favoritas instantáneamente
 ```
-
-**Ejemplos que funcionan perfectamente:**
-- "café" → encuentra recetas de coffee
-- "mojito" → encuentra recetas de mojito
-- "cerveza" → encuentra recetas de beer
-- "té" → encuentra recetas de tea
-- "batido" → encuentra smoothies
 
 #### 3. 📋 **Ver Detalles de Recetas**
 - 🖼️ **Imagen en alta calidad**
+- ❤️ **Botón de favorito prominente** en la parte superior
 - 📝 **Información completa**: nombre, categoría, origen
 - 🥄 **Lista de ingredientes** con cantidades exactas
 - 👨‍🍳 **Instrucciones paso a paso**
-- ❤️ **Botón de favoritos** para guardar
 
-#### 4. ❤️ **Gestionar Favoritos**
-- **Marcar favorito**: Toca el corazón ❤️ en cualquier receta
-- **Ver favoritos**: Usa la sección dedicada en navegación
-- **Acceso offline**: Los favoritos funcionan sin internet
-- **Eliminar**: Toca nuevamente el corazón para quitar
+#### 4. ❤️ **Gestionar Favoritos** ⭐ **¡NUEVA FUNCIONALIDAD!**
+
+##### **Marcar como Favorito**
+- **Desde cualquier pantalla**: Toca el corazón ❤️ 
+- **Se pone rojo**: Indica que se guardó exitosamente
+- **Guardado instantáneo**: No necesitas confirmar
+
+##### **Ver tus Favoritos**
+- **Pantalla dedicada**: Toca "Favoritos" en navegación inferior
+- **Lista completa**: Todas tus recetas guardadas
+- **Información rica**: Imagen, nombre, categoría, tipo (comida/bebida)
+- **Acceso offline**: Funciona sin conexión a internet
+
+##### **Quitar de Favoritos**
+- **Opción 1**: Toca el ❤️ rojo en cualquier pantalla → se pone gris
+- **Opción 2**: Desde pantalla de favoritos, toca ❤️ → se elimina de la lista
+
+##### **Características Especiales**
+- ✅ **Sincronización instantánea**: Cambios visibles en toda la app
+- ✅ **Persistencia offline**: Datos guardados localmente
+- ✅ **Sin límites**: Guarda tantas recetas como quieras
+- ✅ **Orden cronológico**: Las más recientes aparecen primero
 
 ---
 
@@ -139,6 +143,7 @@
 | **Error** | ⚠️ | Problema de conexión con botón reintentar |
 | **Favorito activo** | ❤️ | Receta guardada en favoritos |
 | **Favorito inactivo** | 🤍 | Receta no guardada |
+| **Favoritos vacíos** | 💔 | Pantalla sin favoritos con mensaje motivacional |
 
 ---
 
@@ -152,8 +157,9 @@
 
 ### ❤️ **Gestión de Favoritos**
 - 🗂️ **Organiza mentalmente** por tipo de comida
-- 📱 **Aprovecha el acceso offline**
+- 📱 **Aprovecha el acceso offline** para cocinar sin internet
 - 🧹 **Limpia periódicamente** favoritos no usados
+- 🔄 **Los cambios son instantáneos** en toda la app
 
 ### 🚀 **Navegación Rápida**
 - 📱 **Barra inferior**: Siempre accesible
@@ -176,9 +182,10 @@
 <details>
 <summary>❤️ Los favoritos no se guardan</summary>
 
-- ✅ **Espera la confirmación** visual (corazón rojo)
-- ✅ **Verifica espacio** en tu dispositivo
-- ✅ **Reinicia la aplicación**
+- ✅ **Verifica el corazón**: Debe ponerse rojo al tocarlo
+- ✅ **Espacio disponible**: Verifica que tengas memoria libre
+- ✅ **Reinicia la aplicación** completamente
+- ✅ **El problema está resuelto**: Nueva implementación con Room Database
 </details>
 
 <details>
@@ -203,7 +210,7 @@
 - 🎨 **UI**: Jetpack Compose + Material Design 3
 - 🧠 **Architecture**: MVVM + Repository Pattern
 - 💉 **DI**: Hilt
-- 💾 **Database**: Room
+- 💾 **Database**: Room SQLite ⭐ **Para favoritos**
 - 🌐 **Network**: Retrofit + Gson
 - ⚡ **Async**: Kotlin Coroutines + Flow
 - 🧭 **Navigation**: Jetpack Navigation Compose
@@ -212,6 +219,38 @@
 - 🍽️ **[TheMealDB](https://www.themealdb.com/api.php)** - Recetas de comidas
 - 🍹 **[TheCocktailDB](https://www.thecocktaildb.com/api.php)** - Recetas de bebidas
 
+### 💾 **Persistencia de Datos** ⭐ **NUEVO**
+```kotlin
+// Entidad Room para favoritos
+@Entity(tableName = "favoritos")
+data class Receta(
+    @PrimaryKey val id: String,
+    val nombre: String,
+    val imagen: String,
+    val categoria: String,
+    val area: String,
+    val instrucciones: String,
+    val ingredientes: String,
+    val tipo: String, // "meal" o "drink"
+    val fechaAgregado: Long
+)
+
+// DAO con operaciones de favoritos
+@Dao interface RecetaDao {
+    @Query("SELECT * FROM favoritos ORDER BY fechaAgregado DESC")
+    fun obtenerTodosFavoritos(): Flow<List<Receta>>
+    
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertarFavorito(receta: Receta)
+    
+    @Query("DELETE FROM favoritos WHERE id = :id")
+    suspend fun eliminarFavoritoPorId(id: String)
+    
+    @Query("SELECT EXISTS(SELECT 1 FROM favoritos WHERE id = :id)")
+    suspend fun esFavorito(id: String): Boolean
+}
+```
+
 ---
 
 ## 📊 **Estructura del Proyecto**
@@ -219,21 +258,49 @@
 ```
 📁 FlavorFusion2/
 ├── 📁 app/src/main/java/com/rodrigoangeloni/flavorfusion/
-│   ├── 🎨 components/          # Componentes UI reutilizables
-│   ├── 💾 database/           # Room database y DAOs
+│   ├── 💾 database/           # Room database y DAOs ⭐ NUEVO
+│   │   ├── BaseDeDatos.kt     # Configuración Room
+│   │   └── RecetaDao.kt       # Operaciones favoritos
 │   ├── 💉 di/                 # Módulos de Hilt
-│   ├── 📱 model/              # Modelos de datos
-│   ├── 🌐 network/            # Servicios API y DTOs
-│   ├── 📊 repository/         # Repository pattern
+│   ├── 📱 model/              # Modelos de datos + DTOs
+│   ├── 🌐 network/            # Servicios API 
+│   ├── 📊 repository/         # Repository pattern ⭐ ACTUALIZADO
 │   ├── 🖥️ screens/            # Pantallas Compose
+│   │   ├── PantallaInicio.kt
+│   │   ├── PantallaFavoritos.kt ⭐ NUEVO
+│   │   ├── PantallaExplorarComidas.kt
+│   │   ├── PantallaExplorarBebidas.kt
+│   │   └── PantallaDetalleReceta.kt
 │   ├── 🎨 ui/theme/           # Tema y estilos
-│   ├── 🧠 viewmodels/         # ViewModels MVVM
+│   ├── 🧠 viewmodels/         # ViewModels MVVM ⭐ ACTUALIZADO
 │   └── 🚀 MainActivity.kt     # Actividad principal
-└── 📁 doc/                   # Documentación
+└── 📁 doc/                   # Documentación ⭐ ACTUALIZADA
     ├── 📋 objetivo-y-funcionalidades.md
     ├── 🏗️ diagrama-arquitectura.md
     └── 📖 manual-de-uso.md
 ```
+
+---
+
+## 🚀 **Lo Nuevo en esta Versión** ⭐
+
+### ❤️ **Sistema de Favoritos Completo**
+- ✅ **Base de datos local**: Room SQLite para persistencia
+- ✅ **Pantalla dedicada**: Gestión completa de favoritos
+- ✅ **Sincronización en tiempo real**: Estado actualizado instantáneamente
+- ✅ **Acceso offline**: Favoritos disponibles sin internet
+- ✅ **Botones intuitivos**: Corazón rojo/gris en toda la app
+
+### 🏗️ **Arquitectura Mejorada**
+- ✅ **Repository actualizado**: Maneja API + Database
+- ✅ **ViewModel renovado**: Estado unificado con Flow reactivo  
+- ✅ **Modelo de datos unificado**: Una entidad para comidas y bebidas
+- ✅ **Inyección de dependencias**: Configuración completa con Hilt
+
+### 📖 **Documentación Completa**
+- ✅ **Manual de uso actualizado**: Instrucciones detalladas de favoritos
+- ✅ **Diagrama de arquitectura**: Refleja nueva implementación
+- ✅ **Objetivos y funcionalidades**: Lista completa de características
 
 ---
 
@@ -258,16 +325,17 @@ Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más det
 ## 👨‍💻 Autor
 
 **Rodrigo Angeloni**
-- 📧 Email: [tu-email@ejemplo.com]
-- 🐙 GitHub: [@tu-usuario](https://github.com/tu-usuario)
-- 💼 LinkedIn: [Tu perfil](https://linkedin.com/in/tu-perfil)
+- 📧 Email: [roandev87@gmail.com]
+- 🐙 GitHub: [@rodrigoangeloni](https://github.com/rodrigoangeloni)
 
 ---
 
 <div align="center">
 
-**¡Disfruta explorando el mundo de las recetas! 🍽️✨**
+**¡Disfruta explorando el mundo de las recetas con favoritos que nunca se pierden! 🍽️✨**
 
 ⭐ **¿Te gusta el proyecto? ¡Dale una estrella!** ⭐
+
+**Nueva funcionalidad de favoritos implementada y completamente funcional** ❤️
 
 </div>

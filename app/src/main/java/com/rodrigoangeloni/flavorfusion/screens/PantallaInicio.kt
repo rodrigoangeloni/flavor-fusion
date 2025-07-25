@@ -1,6 +1,5 @@
 package com.rodrigoangeloni.flavorfusion.screens
 
-
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -9,9 +8,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Star
+import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -22,9 +19,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
-import coil.compose.rememberAsyncImagePainter
-import com.rodrigoangeloni.flavorfusion.components.MensajeError
-import com.rodrigoangeloni.flavorfusion.components.TarjetaReceta
+import coil.compose.AsyncImage
 import com.rodrigoangeloni.flavorfusion.viewmodels.InicioViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -34,8 +29,7 @@ fun PantallaInicio(
     navegarAComidas: () -> Unit,
     navegarABebidas: () -> Unit,
     navegarAFavoritos: () -> Unit,
-    navegarADetalleComida: (String) -> Unit,
-    navegarADetalleBebida: (String) -> Unit
+    navegarADetalleReceta: (String, String) -> Unit
 ) {
     val estadoUI by viewModel.estadoUI.collectAsState()
 
@@ -50,83 +44,20 @@ fun PantallaInicio(
                 }
             )
         }
-    ) { padding ->
+    ) { paddingValues ->
         Column(
             modifier = Modifier
-                .padding(padding)
                 .fillMaxSize()
+                .padding(paddingValues)
                 .verticalScroll(rememberScrollState())
+                .padding(16.dp)
         ) {
-            // Banner de bienvenida
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .background(MaterialTheme.colorScheme.primaryContainer)
-                    .padding(16.dp),
-                contentAlignment = Alignment.Center
-            ) {
-                Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                    Text(
-                        text = "¿Qué te gustaría preparar hoy?",
-                        fontSize = 24.sp,
-                        fontWeight = FontWeight.Bold,
-                        color = MaterialTheme.colorScheme.onPrimaryContainer
-                    )
-
-                    Spacer(modifier = Modifier.height(16.dp))
-
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.SpaceEvenly
-                    ) {
-                        Button(onClick = navegarAComidas) {
-                            Icon(Icons.Default.Home, contentDescription = null)
-                            Spacer(modifier = Modifier.width(8.dp))
-                            Text("Comidas")
-                        }
-
-                        Button(
-                            onClick = navegarABebidas,
-                            colors = ButtonDefaults.buttonColors(
-                                containerColor = MaterialTheme.colorScheme.secondary
-                            )
-                        ) {
-                            Icon(Icons.Default.Star, contentDescription = null)
-                            Spacer(modifier = Modifier.width(8.dp))
-                            Text("Bebidas")
-                        }
-                    }
-                }
-            }
-
-            // Descripción de la app
-            Card(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(16.dp)
-            ) {
-                Column(modifier = Modifier.padding(16.dp)) {
-                    Text(
-                        text = "¿Qué es Flavor Fusion?",
-                        fontSize = 20.sp,
-                        fontWeight = FontWeight.Bold
-                    )
-
-                    Spacer(modifier = Modifier.height(8.dp))
-
-                    Text(
-                        "Flavor Fusion es tu asistente culinario que te ayuda a descubrir " +
-                                "deliciosas recetas de comidas y bebidas de todo el mundo."
-                    )
-                }
-            }
-
-            // Sección de sugerencias
+            // Título de bienvenida
             Text(
-                text = "Sugerencias para hoy",
-                fontSize = 20.sp,
+                text = "¡Descubre Nuevos Sabores!",
+                style = MaterialTheme.typography.headlineMedium,
                 fontWeight = FontWeight.Bold,
-                modifier = Modifier.padding(16.dp)
+                modifier = Modifier.padding(bottom = 24.dp)
             )
 
             if (estadoUI.estaCargando) {
@@ -138,38 +69,211 @@ fun PantallaInicio(
                 ) {
                     CircularProgressIndicator()
                 }
-            } else if (estadoUI.error != null) {
-                MensajeError(
-                    mensaje = estadoUI.error!!,
-                    onReintentar = viewModel::cargarSugerenciasAleatorias
-                )
             } else {
-                // Sugerencia de comida
+                // Comida sugerida
                 estadoUI.comidaSugerida?.let { comida ->
-                    TarjetaReceta(
-                        titulo = "Comida recomendada",
-                        nombre = comida.nombre,
-                        categoria = comida.categoria,
-                        urlImagen = comida.urlImagen,
-                        onClick = { navegarADetalleComida(comida.id) }
+                    TarjetaSugerencia(
+                        titulo = "Comida del Día",
+                        receta = comida,
+                        esFavorito = estadoUI.favoritosIds.contains(comida.id),
+                        onRecetaClick = { navegarADetalleReceta(comida.id, "meal") },
+                        onFavoritoClick = { viewModel.alternarFavorito(comida) }
                     )
+
+                    Spacer(modifier = Modifier.height(16.dp))
                 }
 
-                Spacer(modifier = Modifier.height(16.dp))
-
-                // Sugerencia de bebida
+                // Bebida sugerida
                 estadoUI.bebidaSugerida?.let { bebida ->
-                    TarjetaReceta(
-                        titulo = "Bebida recomendada",
-                        nombre = bebida.nombre,
-                        categoria = bebida.categoria,
-                        urlImagen = bebida.urlImagen,
-                        onClick = { navegarADetalleBebida(bebida.id) }
+                    TarjetaSugerencia(
+                        titulo = "Bebida del Día",
+                        receta = bebida,
+                        esFavorito = estadoUI.favoritosIds.contains(bebida.id),
+                        onRecetaClick = { navegarADetalleReceta(bebida.id, "drink") },
+                        onFavoritoClick = { viewModel.alternarFavorito(bebida) }
                     )
+
+                    Spacer(modifier = Modifier.height(24.dp))
+                }
+
+                // Botones de navegación
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(16.dp)
+                ) {
+                    // Botón explorar comidas
+                    Card(
+                        modifier = Modifier
+                            .weight(1f)
+                            .clickable { navegarAComidas() },
+                        colors = CardDefaults.cardColors(
+                            containerColor = MaterialTheme.colorScheme.primaryContainer
+                        )
+                    ) {
+                        Column(
+                            modifier = Modifier.padding(16.dp),
+                            horizontalAlignment = Alignment.CenterHorizontally
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.Restaurant,
+                                contentDescription = null,
+                                modifier = Modifier.size(32.dp),
+                                tint = MaterialTheme.colorScheme.onPrimaryContainer
+                            )
+                            Spacer(modifier = Modifier.height(8.dp))
+                            Text(
+                                text = "Explorar Comidas",
+                                style = MaterialTheme.typography.titleSmall,
+                                color = MaterialTheme.colorScheme.onPrimaryContainer
+                            )
+                        }
+                    }
+
+                    // Botón explorar bebidas
+                    Card(
+                        modifier = Modifier
+                            .weight(1f)
+                            .clickable { navegarABebidas() },
+                        colors = CardDefaults.cardColors(
+                            containerColor = MaterialTheme.colorScheme.secondaryContainer
+                        )
+                    ) {
+                        Column(
+                            modifier = Modifier.padding(16.dp),
+                            horizontalAlignment = Alignment.CenterHorizontally
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.LocalBar,
+                                contentDescription = null,
+                                modifier = Modifier.size(32.dp),
+                                tint = MaterialTheme.colorScheme.onSecondaryContainer
+                            )
+                            Spacer(modifier = Modifier.height(8.dp))
+                            Text(
+                                text = "Explorar Bebidas",
+                                style = MaterialTheme.typography.titleSmall,
+                                color = MaterialTheme.colorScheme.onSecondaryContainer
+                            )
+                        }
+                    }
                 }
             }
 
-            Spacer(modifier = Modifier.height(32.dp))
+            // Mostrar error si existe
+            estadoUI.error?.let { error ->
+                Spacer(modifier = Modifier.height(16.dp))
+                Card(
+                    colors = CardDefaults.cardColors(
+                        containerColor = MaterialTheme.colorScheme.errorContainer
+                    )
+                ) {
+                    Column(
+                        modifier = Modifier.padding(16.dp)
+                    ) {
+                        Text(
+                            text = "Error",
+                            style = MaterialTheme.typography.titleMedium,
+                            color = MaterialTheme.colorScheme.onErrorContainer,
+                            fontWeight = FontWeight.Bold
+                        )
+                        Text(
+                            text = error,
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = MaterialTheme.colorScheme.onErrorContainer
+                        )
+                        Spacer(modifier = Modifier.height(8.dp))
+                        Button(
+                            onClick = { viewModel.cargarSugerenciasAleatorias() }
+                        ) {
+                            Text("Reintentar")
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun TarjetaSugerencia(
+    titulo: String,
+    receta: com.rodrigoangeloni.flavorfusion.model.Receta,
+    esFavorito: Boolean,
+    onRecetaClick: () -> Unit,
+    onFavoritoClick: () -> Unit
+) {
+    Column {
+        Text(
+            text = titulo,
+            style = MaterialTheme.typography.titleLarge,
+            fontWeight = FontWeight.Bold,
+            modifier = Modifier.padding(bottom = 8.dp)
+        )
+
+        Card(
+            modifier = Modifier
+                .fillMaxWidth()
+                .clickable { onRecetaClick() }
+        ) {
+            Column {
+                Box {
+                    AsyncImage(
+                        model = receta.imagen,
+                        contentDescription = receta.nombre,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(200.dp),
+                        contentScale = ContentScale.Crop
+                    )
+
+                    // Botón de favorito flotante
+                    IconButton(
+                        onClick = onFavoritoClick,
+                        modifier = Modifier
+                            .align(Alignment.TopEnd)
+                            .padding(8.dp)
+                            .background(
+                                MaterialTheme.colorScheme.surface.copy(alpha = 0.8f),
+                                RoundedCornerShape(50)
+                            )
+                    ) {
+                        Icon(
+                            imageVector = if (esFavorito) Icons.Filled.Favorite else Icons.Filled.FavoriteBorder,
+                            contentDescription = if (esFavorito) "Quitar de favoritos" else "Agregar a favoritos",
+                            tint = if (esFavorito) MaterialTheme.colorScheme.error else MaterialTheme.colorScheme.onSurface
+                        )
+                    }
+                }
+
+                Column(
+                    modifier = Modifier.padding(16.dp)
+                ) {
+                    Text(
+                        text = receta.nombre,
+                        style = MaterialTheme.typography.titleMedium,
+                        fontWeight = FontWeight.Bold
+                    )
+
+                    if (receta.categoria.isNotBlank()) {
+                        Text(
+                            text = receta.categoria,
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            modifier = Modifier.padding(top = 4.dp)
+                        )
+                    }
+
+                    if (receta.area.isNotBlank()) {
+                        Text(
+                            text = receta.area,
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            modifier = Modifier.padding(top = 2.dp)
+                        )
+                    }
+                }
+            }
         }
     }
 }

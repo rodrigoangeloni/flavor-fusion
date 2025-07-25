@@ -25,6 +25,7 @@
 
 ### Acciones Disponibles
 - **Tocar una receta**: Ver detalles completos
+- **❤️ Marcar favorito**: Toca el corazón para guardar la receta
 - **Navegar**: Usar los botones inferiores para cambiar de sección
 - **Actualizar**: Deslizar hacia abajo para nuevas sugerencias
 
@@ -48,61 +49,137 @@
 3. **Ver resultados**:
    - Los resultados aparecen como tarjetas visuales
    - Cada tarjeta muestra imagen, nombre y categoría
+   - **❤️ Botón favorito** en cada tarjeta
    - Toca cualquier receta para ver detalles completos
 
-#### Limpiar Búsqueda
-- **Botón X**: Toca la X para borrar el texto
-- **Borrar manualmente**: Elimina el texto para volver a la vista principal
+#### Estados de la Búsqueda
+- **🔄 Cargando**: Aparece un spinner mientras busca
+- **✅ Resultados**: Lista de recetas encontradas
+- **🚫 Sin resultados**: Mensaje cuando no hay coincidencias
+- **⚠️ Error**: Problema de conexión con opción de reintentar
 
 ### 🍹 Sección de Bebidas
 
 #### Funcionalidad Idéntica
-- Misma interfaz que la sección de comidas
-- Busca por nombre: "mojito", "coffee", "smoothie"
-- Resultados específicos para bebidas
+- Misma interfaz y funciones que la sección de comidas
+- Especializada en bebidas alcohólicas y no alcohólicas
+- Información específica: tipo de vaso, método de preparación
+- **❤️ Sistema de favoritos** completamente integrado
 
 ---
 
-## 📋 Detalles de Recetas
+## 📱 Detalles de Recetas
 
 ### Información Completa
-Al tocar cualquier receta verás:
+Cuando tocas cualquier receta, verás:
 
-- **📸 Imagen Principal**: Foto de alta calidad del plato/bebida
-- **📝 Información Básica**:
-  - Nombre de la receta
-  - Categoría (Desayuno, Cena, Cóctel, etc.)
-  - País de origen
-  - Tipo de vaso (para bebidas)
+#### 🖼️ Encabezado
+- **Imagen en alta calidad** de la receta
+- **Botón ❤️ de favorito** (rojo si es favorito, gris si no)
+- **Botón de regreso** (←) para volver
 
-- **🥄 Ingredientes**:
-  - Lista completa con cantidades exactas
-  - Ingredientes organizados y fáciles de leer
+#### 📋 Información Básica
+- **Nombre completo** de la receta
+- **Categoría**: Tipo de comida o bebida
+- **Origen**: País o región (para comidas)
+- **Tipo de vaso**: Para bebidas
 
-- **👨‍🍳 Instrucciones**:
-  - Pasos detallados de preparación
-  - Proceso completo de cocina/preparación
+#### 🥄 Ingredientes
+- **Lista completa** de ingredientes necesarios
+- **Cantidades exactas** para cada ingrediente
+- **Formato claro** y fácil de leer
 
-### Navegación en Detalles
-- **← Flecha atrás**: Regresar a la lista anterior
-- **❤️ Favoritos**: Marcar o desmarcar como favorito
+#### 👨‍🍳 Instrucciones
+- **Pasos detallados** de preparación
+- **Texto completo** con todas las indicaciones
+- **Formato legible** para seguir mientras cocinas
 
 ---
 
-## ❤️ Sistema de Favoritos
+## ❤️ Sistema de Favoritos ⭐ **¡NUEVA FUNCIONALIDAD!**
 
-### Marcar como Favorito
-1. **En detalles de receta**: Toca el icono de corazón
-2. **Estados visuales**:
-   - ❤️ Rojo = Es favorito
-   - 🤍 Vacío = No es favorito
-3. **Guardado automático**: Los favoritos se guardan instantáneamente
+### 🎯 ¿Qué son los Favoritos?
+Los favoritos te permiten **guardar recetas que te gustan** para acceder a ellas rápidamente, **incluso sin conexión a internet**.
 
-### Ver Favoritos
-1. Navega a la sección "Favoritos" (icono ❤️)
-2. Ve todas tus recetas guardadas
-3. Acceso rápido a tus recetas preferidas
-4. Disponible sin conexión a internet
+### 📍 ¿Dónde Encontrar el Botón de Favorito?
+El botón ❤️ está disponible en:
+- ✅ **Pantalla de inicio** (en las recetas sugeridas)
+- ✅ **Resultados de búsqueda** (en cada tarjeta de receta)
+- ✅ **Pantalla de detalles** (en la parte superior)
+- ✅ **Pantalla de favoritos** (para eliminar)
+
+### 🔄 Cómo Usar los Favoritos
+
+#### **Agregar a Favoritos**
+1. 👀 **Encuentra una receta** que te guste
+2. 👆 **Toca el corazón ❤️** en cualquier ubicación
+3. ✨ **El corazón se pone rojo** indicando que se guardó
+4. 💾 **Se guarda automáticamente** en tu dispositivo
+
+#### **Ver tus Favoritos**
+1. 📱 **Toca el ícono "Favoritos"** en la navegación inferior
+2. 📋 **Ve la lista completa** de recetas guardadas
+3. 🖼️ **Cada favorito muestra**: imagen, nombre, categoría, tipo
+4. 👆 **Toca cualquier receta** para ver detalles completos
+
+#### **Eliminar de Favoritos**
+**Opción 1 - Desde cualquier pantalla:**
+1. 👆 **Toca el corazón rojo ❤️** en la receta
+2. 🤍 **Se pone gris** indicando que se eliminó
+
+**Opción 2 - Desde pantalla de favoritos:**
+1. 📱 **Ve a la sección Favoritos**
+2. 👆 **Toca el corazón rojo ❤️** junto a la receta
+3. ✅ **Se elimina de la lista** automáticamente
+
+### 💡 Características Especiales de Favoritos
+
+#### 📱 **Acceso Offline**
+- ✅ **Funciona sin internet**: Ve tus favoritos en cualquier momento
+- ✅ **Datos guardados localmente**: En la memoria de tu dispositivo
+- ✅ **Imágenes disponibles**: Se guardan para uso offline
+
+#### 🔄 **Sincronización en Tiempo Real**
+- ✅ **Actualización instantánea**: Cambios se ven inmediatamente
+- ✅ **Estado consistente**: El corazón siempre refleja el estado real
+- ✅ **Sincronización entre pantallas**: Cambios visibles en toda la app
+
+#### 📊 **Gestión Inteligente**
+- ✅ **Sin límite**: Guarda tantas recetas como quieras
+- ✅ **Orden cronológico**: Las más recientes aparecen primero
+- ✅ **Búsqueda rápida**: Encuentra favoritos fácilmente
+
+### 📋 Estados de la Pantalla de Favoritos
+
+#### 😊 **Con Favoritos**
+```
+┌─────────────────────────────┐
+│        Mis Favoritos        │
+├─────────────────────────────┤
+│ 🖼️ Pasta Carbonara     ❤️  │
+│    Italian • Meal           │
+├─────────────────────────────┤
+│ 🖼️ Mojito             ❤️  │
+│    Cocktail • Drink         │
+└─────────────────────────────┘
+```
+
+#### 😔 **Sin Favoritos**
+```
+┌─────────────────────────────┐
+│        Mis Favoritos        │
+├─────────────────────────────┤
+│                             │
+│         ❤️ (grande)         │
+│                             │
+│   No tienes favoritos aún   │
+│                             │
+│  Explora recetas y marca    │
+│  tus favoritas tocando      │
+│     el corazón ❤️           │
+│                             │
+└─────────────────────────────┘
+```
 
 ---
 
@@ -110,84 +187,93 @@ Al tocar cualquier receta verás:
 
 ### Indicadores Visuales
 
-#### 🔄 Cargando
-- **Spinner circular**: Indica que se están cargando datos
-- **Aparece cuando**:
-  - Abres la aplicación por primera vez
-  - Realizas una búsqueda
-  - Cargas detalles de receta
-
-#### ❌ Sin Resultados
-- **Mensaje informativo**: "No se encontraron resultados para 'tu búsqueda'"
-- **Aparece cuando**: Tu búsqueda no encuentra recetas coincidentes
-
-#### ⚠️ Error de Conexión
-- **Mensaje de error**: Descripción del problema
-- **Botón "Reintentar"**: Para volver a intentar la operación
-- **Aparece cuando**: Hay problemas de conexión a internet
+| Estado | Símbolo | Descripción | Acción |
+|--------|---------|-------------|---------|
+| **Cargando** | 🔄 | Datos en proceso | Esperar |
+| **Favorito Activo** | ❤️ | Receta guardada | Toca para quitar |
+| **Favorito Inactivo** | 🤍 | Receta no guardada | Toca para agregar |
+| **Sin Resultados** | 🚫 | No hay coincidencias | Probar otra búsqueda |
+| **Error de Red** | ⚠️ | Problema conexión | Reintentar |
+| **Favoritos Vacíos** | 💔 | Sin favoritos guardados | Explorar recetas |
 
 ---
 
 ## 💡 Tips y Trucos
 
-### Búsquedas Efectivas
-- **Usa palabras clave simples**: "chicken" mejor que "pollo con arroz"
-- **Prueba en inglés**: Las APIs funcionan mejor en inglés
-- **Sé específico**: "pasta" dará mejores resultados que "comida italiana"
+### 🔍 **Para Búsquedas Efectivas**
+- ✅ **Usa términos simples**: "chicken" mejor que "pollo con verduras"
+- ✅ **Prueba en inglés**: Las APIs funcionan mejor en inglés
+- ✅ **Sé específico**: "pasta" mejor que "comida italiana"
+- ✅ **Experimenta**: Prueba variaciones de la palabra
 
-### Gestión de Favoritos
-- **Organiza por tipo**: Usa favoritos para categorizar mentalmente
-- **Acceso offline**: Los favoritos funcionan sin internet
-- **Limpieza periódica**: Elimina favoritos que ya no uses
+### ❤️ **Para Gestionar Favoritos**
+- 🗂️ **Organiza mentalmente**: Agrupa por tipo de ocasión
+- 📱 **Úsalos offline**: Perfectos para cocinar sin internet
+- 🧹 **Limpia periódicamente**: Elimina recetas que ya no uses
+- 🔄 **Sincroniza**: Los cambios son instantáneos
 
-### Navegación Rápida
-- **Barra inferior**: Siempre visible para cambio rápido de sección
-- **Botón atrás**: Consistente en toda la aplicación
-- **Gestos**: Deslizar funciona en algunas secciones
+### 🚀 **Para Navegación Rápida**
+- 📱 **Barra inferior**: Siempre accesible desde cualquier pantalla
+- ← **Botón atrás**: Consistente en toda la aplicación
+- 👆 **Gestos**: Deslizar para actualizar sugerencias
 
 ---
 
 ## 🔧 Solución de Problemas
 
-### La búsqueda no funciona
-1. **Verifica tu conexión**: Necesitas internet para buscar
-2. **Revisa la ortografía**: Errores tipográficos afectan resultados
-3. **Prueba términos diferentes**: Usa sinónimos o palabras más simples
-4. **Reinicia la app**: Cierra y abre nuevamente
+### 🚫 **Búsqueda no Funciona**
+**Posibles causas y soluciones:**
+- ❌ **Sin internet**: Verifica tu conexión WiFi/datos
+- ❌ **Término no existe**: Prueba palabras más comunes
+- ❌ **Error temporal**: Espera un momento y reintenta
+- ❌ **App congelada**: Cierra y reopena la aplicación
 
-### Los favoritos no se guardan
-1. **Espera a la confirmación**: El corazón debe cambiar de color
-2. **Verifica espacio**: Asegúrate de tener espacio en el dispositivo
-3. **Reinicia la aplicación**: Puede resolver problemas temporales
+### ❤️ **Favoritos no se Guardan**
+**Pasos para solucionarlo:**
+1. ✅ **Verifica el corazón**: Debe ponerse rojo al tocarlo
+2. ✅ **Espacio disponible**: Asegúrate de tener memoria libre
+3. ✅ **Reinicia la app**: Cierra completamente y reabre
+4. ✅ **Verifica permisos**: La app debe poder escribir datos
 
-### La aplicación está lenta
-1. **Cierra otras apps**: Libera memoria del dispositivo
-2. **Verifica conexión**: Conexión lenta afecta la carga
-3. **Reinicia el dispositivo**: Solución para problemas generales
+### 🐌 **Aplicación Lenta**
+**Optimización recomendada:**
+1. ✅ **Cierra otras apps**: Libera memoria RAM
+2. ✅ **Verifica conexión**: Internet lento afecta carga
+3. ✅ **Reinicia dispositivo**: Limpia caché del sistema
+4. ✅ **Espacio libre**: Mantén al menos 500MB disponible
+
+### 🖼️ **Imágenes no Cargan**
+**Soluciones posibles:**
+- ✅ **Conexión lenta**: Espera más tiempo
+- ✅ **Datos móviles**: Verifica que no estés en modo ahorro
+- ✅ **Caché lleno**: Reinicia la aplicación
+- ✅ **Error temporal**: Las imágenes externas pueden fallar
 
 ---
 
-## 📱 Requisitos del Sistema
+## 📞 Soporte y Ayuda
 
-- **Android**: Versión 7.0 (API 24) o superior
-- **Memoria**: Mínimo 2GB RAM recomendado
-- **Almacenamiento**: 100MB espacio libre
-- **Internet**: Conexión requerida para búsquedas y nuevas recetas
-- **Permisos**: Acceso a internet únicamente
+### 🆘 **¿Necesitas Más Ayuda?**
+Si ninguna de estas soluciones funciona:
+
+1. 📧 **Contacto**: Envía un email con tu problema específico
+2. 🐛 **Reporta bugs**: Describe paso a paso lo que pasó
+3. 💡 **Sugerencias**: Comparte ideas para mejorar la app
+4. ⭐ **Valoración**: Deja tu reseña en la tienda de apps
+
+### 📱 **Información del Sistema**
+Para reportar problemas, incluye:
+- Modelo de tu dispositivo
+- Versión de Android
+- Versión de la aplicación
+- Descripción detallada del problema
 
 ---
 
-## 🆘 Soporte
+## 🎉 ¡Disfruta Cocinando!
 
-### Contacto
-- **Desarrollador**: [Tu información de contacto]
-- **Email**: [tu-email@ejemplo.com]
-- **GitHub**: [tu-repositorio]
+**FlavorFusion2** está diseñada para hacer que descubrir y guardar recetas sea **fácil, rápido y divertido**. 
 
-### Reportar Problemas
-1. Describe el problema detalladamente
-2. Incluye capturas de pantalla si es posible
-3. Menciona tu versión de Android
-4. Especifica los pasos para reproducir el error
+✨ **Con el nuevo sistema de favoritos**, nunca perderás esa receta perfecta que encontraste.
 
-¡Disfruta explorando el mundo de las recetas con FlavorFusion2! 🍽️✨
+👨‍🍳 **¡Feliz cocina y que disfrutes explorando el mundo de los sabores!** 🍽️✨

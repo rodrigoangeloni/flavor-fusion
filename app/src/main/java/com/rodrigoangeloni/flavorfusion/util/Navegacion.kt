@@ -1,17 +1,15 @@
 package com.rodrigoangeloni.flavorfusion.util
 
 import androidx.compose.runtime.Composable
-import androidx.navigation.NavType
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import androidx.navigation.NavType
 import com.rodrigoangeloni.flavorfusion.screens.*
 
 @Composable
-fun AppNavegacion() {
-    val navController = rememberNavController()
-
+fun NavegacionApp(navController: NavHostController) {
     NavHost(
         navController = navController,
         startDestination = "inicio"
@@ -22,8 +20,7 @@ fun AppNavegacion() {
                 navegarAComidas = { navController.navigate("explorar_comidas") },
                 navegarABebidas = { navController.navigate("explorar_bebidas") },
                 navegarAFavoritos = { navController.navigate("favoritos") },
-                navegarADetalleComida = { id -> navController.navigate("detalle_receta/$id/meal") },
-                navegarADetalleBebida = { id -> navController.navigate("detalle_receta/$id/cocktail") }
+                navegarADetalleReceta = { id, tipo -> navController.navigate("detalle_receta/$id/$tipo") }
             )
         }
 
@@ -31,7 +28,7 @@ fun AppNavegacion() {
         composable("explorar_comidas") {
             PantallaExplorarComidas(
                 onNavigateUp = { navController.navigateUp() },
-                onNavigateToDetail = { id -> navController.navigate("detalle_receta/$id/meal") }
+                onNavigateToDetail = { id, tipo -> navController.navigate("detalle_receta/$id/$tipo") }
             )
         }
 
@@ -39,7 +36,14 @@ fun AppNavegacion() {
         composable("explorar_bebidas") {
             PantallaExplorarBebidas(
                 onNavigateUp = { navController.navigateUp() },
-                onNavigateToDetail = { id -> navController.navigate("detalle_receta/$id/cocktail") }
+                onNavigateToDetail = { id, tipo -> navController.navigate("detalle_receta/$id/$tipo") }
+            )
+        }
+
+        // Pantalla de favoritos
+        composable("favoritos") {
+            PantallaFavoritos(
+                onRecetaClick = { id, tipo -> navController.navigate("detalle_receta/$id/$tipo") }
             )
         }
 
@@ -52,21 +56,12 @@ fun AppNavegacion() {
             )
         ) { backStackEntry ->
             val recipeId = backStackEntry.arguments?.getString("recipeId") ?: ""
-            val recipeType = backStackEntry.arguments?.getString("recipeType") ?: "meal"
+            val recipeType = backStackEntry.arguments?.getString("recipeType") ?: ""
 
             PantallaDetalleReceta(
                 recipeId = recipeId,
                 recipeType = recipeType,
                 onNavigateUp = { navController.navigateUp() }
-            )
-        }
-
-        // Favoritos
-        composable("favoritos") {
-            PantallaFavoritos(
-                onNavigateUp = { navController.navigateUp() },
-                onMealClick = { id -> navController.navigate("detalle_receta/$id/meal") },
-                onCocktailClick = { id -> navController.navigate("detalle_receta/$id/cocktail") }
             )
         }
     }

@@ -4,167 +4,171 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.*
+import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.RestaurantMenu
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.rodrigoangeloni.flavorfusion.components.TarjetaReceta
+import coil.compose.AsyncImage
+import com.rodrigoangeloni.flavorfusion.R
+import com.rodrigoangeloni.flavorfusion.model.Receta
 import com.rodrigoangeloni.flavorfusion.viewmodels.InicioViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PantallaFavoritos(
-    viewModel: InicioViewModel = hiltViewModel(),
-    onNavigateUp: () -> Unit,
-    onMealClick: (String) -> Unit,
-    onCocktailClick: (String) -> Unit
+    onRecetaClick: (String, String) -> Unit,
+    viewModel: InicioViewModel = hiltViewModel()
 ) {
-    var selectedTab by remember { mutableStateOf(0) }
-    val tabs = listOf("Comidas", "Bebidas")
+    val favoritos by viewModel.favoritos.collectAsState()
 
-    // Datos de ejemplo para favoritos
-    val favoriteMeals = listOf(
-        Triple("1", "Paella Valenciana", "Plato Principal"),
-        Triple("2", "Pasta Carbonara", "Pasta"),
-        Triple("3", "Sushi Roll", "Japonesa")
-    )
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp)
+    ) {
+        // Título
+        Text(
+            text = "Mis Favoritos",
+            style = MaterialTheme.typography.headlineMedium,
+            fontWeight = FontWeight.Bold,
+            modifier = Modifier.padding(bottom = 16.dp)
+        )
 
-    val favoriteCocktails = listOf(
-        Triple("1", "Mojito Clásico", "Cóctel"),
-        Triple("2", "Margarita", "Cóctel"),
-        Triple("3", "Piña Colada", "Cóctel Tropical")
-    )
-
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                title = { Text("Mis Favoritos") },
-                navigationIcon = {
-                    IconButton(onClick = onNavigateUp) {
-                        Icon(Icons.Default.ArrowBack, contentDescription = "Regresar")
-                    }
-                }
-            )
-        }
-    ) { paddingValues ->
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(paddingValues)
-        ) {
-            // Tabs para alternar entre comidas y bebidas
-            TabRow(selectedTabIndex = selectedTab) {
-                tabs.forEachIndexed { index, title ->
-                    Tab(
-                        selected = selectedTab == index,
-                        onClick = { selectedTab = index },
-                        text = { Text(title) },
-                        icon = {
-                            Icon(
-                                imageVector = if (index == 0) Icons.Default.Home else Icons.Default.Star,
-                                contentDescription = null
-                            )
-                        }
-                    )
-                }
+        if (favoritos.isEmpty()) {
+            // Estado vacío
+            Column(
+                modifier = Modifier.fillMaxSize(),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center
+            ) {
+                Icon(
+                    imageVector = Icons.Default.Favorite,
+                    contentDescription = null,
+                    modifier = Modifier.size(64.dp),
+                    tint = MaterialTheme.colorScheme.outline
+                )
+                Spacer(modifier = Modifier.height(16.dp))
+                Text(
+                    text = "No tienes favoritos aún",
+                    style = MaterialTheme.typography.headlineSmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    textAlign = TextAlign.Center
+                )
+                Spacer(modifier = Modifier.height(8.dp))
+                Text(
+                    text = "Explora recetas y marca tus favoritas tocando el corazón ❤️",
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.padding(horizontal = 32.dp)
+                )
             }
-
-            // Contenido según la tab seleccionada
-            when (selectedTab) {
-                0 -> {
-                    // Favoritos de comidas
-                    if (favoriteMeals.isEmpty()) {
-                        EmptyFavoritesView(
-                            message = "No tienes comidas favoritas",
-                            icon = Icons.Default.Home
-                        )
-                    } else {
-                        LazyColumn(
-                            modifier = Modifier.fillMaxSize(),
-                            contentPadding = PaddingValues(vertical = 8.dp),
-                            verticalArrangement = Arrangement.spacedBy(8.dp)
-                        ) {
-                            items(favoriteMeals) { (id, name, category) ->
-                                TarjetaReceta(
-                                    titulo = "Comida favorita",
-                                    nombre = name,
-                                    categoria = category,
-                                    urlImagen = "https://via.placeholder.com/300x200",
-                                    onClick = { onMealClick(id) }
-                                )
-                            }
-                        }
-                    }
-                }
-                1 -> {
-                    // Favoritos de bebidas
-                    if (favoriteCocktails.isEmpty()) {
-                        EmptyFavoritesView(
-                            message = "No tienes bebidas favoritas",
-                            icon = Icons.Default.Star
-                        )
-                    } else {
-                        LazyColumn(
-                            modifier = Modifier.fillMaxSize(),
-                            contentPadding = PaddingValues(vertical = 8.dp),
-                            verticalArrangement = Arrangement.spacedBy(8.dp)
-                        ) {
-                            items(favoriteCocktails) { (id, name, category) ->
-                                TarjetaReceta(
-                                    titulo = "Bebida favorita",
-                                    nombre = name,
-                                    categoria = category,
-                                    urlImagen = "https://via.placeholder.com/300x200",
-                                    onClick = { onCocktailClick(id) }
-                                )
-                            }
-                        }
-                    }
+        } else {
+            // Lista de favoritos
+            LazyColumn(
+                verticalArrangement = Arrangement.spacedBy(12.dp)
+            ) {
+                items(favoritos) { receta ->
+                    TarjetaFavorito(
+                        receta = receta,
+                        onClick = { onRecetaClick(receta.id, receta.tipo) },
+                        onToggleFavorito = { viewModel.alternarFavorito(receta) }
+                    )
                 }
             }
         }
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun EmptyFavoritesView(
-    message: String,
-    icon: androidx.compose.ui.graphics.vector.ImageVector
+fun TarjetaFavorito(
+    receta: Receta,
+    onClick: () -> Unit,
+    onToggleFavorito: () -> Unit
 ) {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(32.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
+    Card(
+        onClick = onClick,
+        modifier = Modifier.fillMaxWidth()
     ) {
-        Icon(
-            imageVector = icon,
-            contentDescription = null,
-            modifier = Modifier.size(64.dp),
-            tint = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.6f)
-        )
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(12.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            // Imagen
+            AsyncImage(
+                model = receta.imagen,
+                contentDescription = receta.nombre,
+                modifier = Modifier.size(80.dp),
+                contentScale = ContentScale.Crop
+            )
 
-        Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.width(12.dp))
 
-        Text(
-            text = message,
-            fontSize = 18.sp,
-            fontWeight = FontWeight.Medium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant
-        )
+            // Información
+            Column(
+                modifier = Modifier.weight(1f)
+            ) {
+                Text(
+                    text = receta.nombre,
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.Bold
+                )
 
-        Spacer(modifier = Modifier.height(8.dp))
+                if (receta.categoria.isNotBlank()) {
+                    Text(
+                        text = receta.categoria,
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                }
 
-        Text(
-            text = "Explora recetas y marca tus favoritas para verlas aquí",
-            color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.8f),
-            fontSize = 14.sp
-        )
+                if (receta.area.isNotBlank()) {
+                    Text(
+                        text = receta.area,
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                }
+
+                // Indicador de tipo
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier.padding(top = 4.dp)
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.RestaurantMenu,
+                        contentDescription = null,
+                        modifier = Modifier.size(16.dp),
+                        tint = MaterialTheme.colorScheme.primary
+                    )
+                    Spacer(modifier = Modifier.width(4.dp))
+                    Text(
+                        text = if (receta.tipo == "meal") "Comida" else "Bebida",
+                        style = MaterialTheme.typography.labelSmall,
+                        color = MaterialTheme.colorScheme.primary
+                    )
+                }
+            }
+
+            // Botón de favorito
+            IconButton(onClick = onToggleFavorito) {
+                Icon(
+                    imageVector = Icons.Default.Favorite,
+                    contentDescription = "Quitar de favoritos",
+                    tint = MaterialTheme.colorScheme.error
+                )
+            }
+        }
     }
 }
