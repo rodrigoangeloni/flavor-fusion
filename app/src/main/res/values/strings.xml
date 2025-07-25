@@ -1,0 +1,58 @@
+<resources>
+    <string name="app_name">FlavorFusion</string>
+
+    <!-- Navegación -->
+    <string name="nav_inicio">Inicio</string>
+    <string name="nav_comidas">Comidas</string>
+    <string name="nav_bebidas">Bebidas</string>
+    <string name="nav_favoritos">Favoritos</string>
+
+    <!-- Pantallas -->
+    <string name="titulo_explorar_comidas">Explorar Comidas</string>
+    <string name="titulo_explorar_bebidas">Explorar Bebidas</string>
+    <string name="titulo_favoritos">Mis Favoritos</string>
+    <string name="titulo_detalle_receta">Detalles de la Receta</string>
+
+    <!-- Búsqueda -->
+    <string name="buscar_comidas_placeholder">Buscar recetas de comida...</string>
+    <string name="buscar_bebidas_placeholder">Buscar bebidas y cócteles...</string>
+    <string name="buscar_hint_comidas">Prueba: pollo, pasta, tacos, pizza</string>
+    <string name="buscar_hint_bebidas">Prueba: mojito, café, batido, té</string>
+    <string name="sin_resultados">No se encontraron resultados para "%1$s"</string>
+    <string name="buscar_accion">Buscar</string>
+    <string name="limpiar_accion">Limpiar</string>
+
+    <!-- Estados -->
+    <string name="cargando">Cargando...</string>
+    <string name="error_conexion">Error de conexión</string>
+    <string name="reintentar">Reintentar</string>
+    <string name="sin_favoritos">No tienes recetas favoritas aún</string>
+    <string name="agregar_favoritos_hint">Explora recetas y márcalas como favoritas</string>
+
+    <!-- Recetas -->
+    <string name="comida_destacada">Comida Destacada</string>
+    <string name="bebida_destacada">Bebida Destacada</string>
+    <string name="resultado_busqueda">Resultado de búsqueda</string>
+    <string name="ingredientes">Ingredientes</string>
+    <string name="instrucciones">Instrucciones</string>
+    <string name="categoria">Categoría</string>
+    <string name="pais_origen">País de origen</string>
+    <string name="tipo_vaso">Tipo de vaso</string>
+    <string name="alcoholica">Alcohólica</string>
+    <string name="no_alcoholica">No alcohólica</string>
+
+    <!-- Acciones -->
+    <string name="regresar">Regresar</string>
+    <string name="marcar_favorito">Marcar como favorito</string>
+    <string name="quitar_favorito">Quitar de favoritos</string>
+
+    <!-- Mensajes de error -->
+    <string name="error_cargar_sugerencias">Error al cargar sugerencias: %1$s</string>
+    <string name="error_buscar_comidas">Error al buscar comidas: %1$s</string>
+    <string name="error_buscar_bebidas">Error al buscar bebidas: %1$s</string>
+    <string name="error_favoritos">Error al actualizar favoritos: %1$s</string>
+
+    <!-- Traducciones para búsqueda -->
+    <string name="busqueda_sugerencia">💡 Consejo: Las búsquedas funcionan mejor en inglés</string>
+    <string name="traducciones_comunes">Traducciones comunes disponibles</string>
+</resources>
